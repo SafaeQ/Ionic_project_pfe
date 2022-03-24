@@ -10,10 +10,12 @@ import {
     IonLabel,
   } from "@ionic/react";
 import React from "react";
+import { withRouter } from 'react-router-dom';
+
   
 const Menu = () => {
     return (
-      <IonMenu side="end" contentId="main">
+      <IonMenu type="overlay" contentId="menu">
         <IonHeader>
           <IonToolbar color="light">
             <IonTitle>MENU</IonTitle>
@@ -40,4 +42,4 @@ const Menu = () => {
     );
   };
 
-export default Menu;
+export default withRouter(Menu);
