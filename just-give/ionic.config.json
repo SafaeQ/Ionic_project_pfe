@@ -1,0 +1,7 @@
+{
+  "name": "Just give",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
