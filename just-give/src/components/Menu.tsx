@@ -15,7 +15,7 @@ import { withRouter } from 'react-router-dom';
   
 const Menu = () => {
     return (
-      <IonMenu type="overlay" contentId="menu">
+      <IonMenu type="overlay" contentId="menu" menuId="main" side="start">
         <IonHeader>
           <IonToolbar color="light">
             <IonTitle>MENU</IonTitle>

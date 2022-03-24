@@ -1,7 +1,7 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
-import NavButton from '../components/NavButton';
+
 
 const Tab1: React.FC = () => {
   return (
@@ -16,7 +16,6 @@ const Tab1: React.FC = () => {
           <IonToolbar>
             <IonTitle size="large">Tab 1</IonTitle>
             <IonButtons slot="end">
-              <NavButton/>
             </IonButtons>
           </IonToolbar>
         </IonHeader>
