@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 9900
+const dotenv = require("dotenv").config();
 
 // routes
 const router = require('./routes/routes')
@@ -8,6 +8,6 @@ const router = require('./routes/routes')
 app.use('/', router)
 
 
-app.listen(port,()=>{
+app.listen(process.env.PORT,()=>{
     console.log(` 🐱The server is runnig`);
 })
