@@ -9,6 +9,12 @@ const router = require('./routes/routes')
 app.use('/', router)
 
 
-app.listen(process.env.PORT,()=>{
-    console.log(` 🐱The server is runnig`);
-})
+db()
+    .catch((err)=>{
+        throw err
+    })
+    .then(()=>{
+        app.listen(process.env.PORT,()=>{
+            console.log(` 🐱The server is runnig`);
+        })
+    })
