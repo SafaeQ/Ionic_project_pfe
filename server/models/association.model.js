@@ -16,7 +16,7 @@ const Association = mongoose.model(
             type:String,
             required:true
         },
-        resetPassword:{
+        confirmPassword:{
             type:String,
         },
         image:{
