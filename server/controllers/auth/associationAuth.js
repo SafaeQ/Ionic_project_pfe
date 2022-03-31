@@ -1,7 +1,8 @@
 const Association = require('../../models/association.model')
 const getHashedPassword = require('../../utils/hashedPassword')
+const {deletedImage} = require('../../utils/deleteFile')
 
-const assoc_signup = async (req, res)=>{
+const assoc_signup = async (req, res, next)=>{
     try {
         const {fullName, email, password, confirmPassword, image, description} = req.body 
 
@@ -13,20 +14,34 @@ const assoc_signup = async (req, res)=>{
 
             const hashedPassword = getHashedPassword(password)
 
-            const uploadimage = req.file
-            console.log(req.file);
+            if (req.files.length === 0 || req.files.length > 2) {
+                const unwantedImagesRoom = req.files;
+                deleteFile.deleteFile(unwantedImagesRoom);
+                return res.status(400).send("Please choose 1");
+              }
+
+            const uploadedImageFile = req.files
+            let avatar = '';
+                for (const item in uploadedImageFile) {
+                    avatar= item.filename
+                }
+
+            // console.log(req.files);
             const user = await Association.create({
                 fullName,
                 email: email.toLowerCase(),
                 password: hashedPassword,
                 confirmPassword,
-                image: uploadimage,
-                description
+                description,
+                image: 'qrcode.png',
             })
+            console.log('----------------------------------',user);
 
-            res.status(200).send(user)
+            const result = await user.save()
+            // console.log(result);
+            res.status(200).send(result)
         }else {
-            res.send('password doesnot match ')
+            res.send('password does not match ')
         }
     } catch (error) {
         console.log(error);
@@ -36,3 +51,20 @@ const assoc_signup = async (req, res)=>{
 }
 
 module.exports = {assoc_signup}
+
+
+
+
+
+
+// if (image === '') {
+//     const unwantedImages = req.file;
+//     deletedImage(unwantedImages);
+//     return res.status(400).send("error");
+//   }
+// const uploadedImageFile = req.file
+// let avatar = [];
+
+//     for (const item in uploadedImageFile) {
+//         avatar.push(item.filename)
+//     }

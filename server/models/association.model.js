@@ -21,7 +21,7 @@ const Association = mongoose.model(
         },
         image:{
             data: Buffer,
-            contentType: String
+            type: String
         }, 
         description:{
             type:String,
