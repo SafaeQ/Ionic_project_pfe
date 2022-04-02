@@ -14,16 +14,10 @@ const assoc_signup = async (req, res, next)=>{
 
             const hashedPassword = getHashedPassword(password)
 
-            if (req.files.length === 0 || req.files.length > 2) {
-                const unwantedImagesRoom = req.files;
-                deleteFile.deleteFile(unwantedImagesRoom);
-                return res.status(400).send("Please choose 1");
-              }
-
             const uploadedImageFile = req.files
-            let avatar = '';
-                for (const item in uploadedImageFile) {
-                    avatar= item.filename
+            let avatar = [];
+                for (const item of uploadedImageFile) {
+                    avatar.push(item.filename)
                 }
 
             // console.log(req.files);
@@ -33,7 +27,7 @@ const assoc_signup = async (req, res, next)=>{
                 password: hashedPassword,
                 confirmPassword,
                 description,
-                image: 'qrcode.png',
+                image:avatar,
             })
             console.log('----------------------------------',user);
 
