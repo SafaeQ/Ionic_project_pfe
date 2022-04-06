@@ -7,7 +7,7 @@ const {deletedImage} = require('../../utils/deleteFile')
 
 const assoc_signup = async (req, res, next)=>{
     try {
-        const {fullName, email, password, confirmPassword, image, description} = req.body 
+        const {fullName, email, password, phoneNumber, adress, members, confirmPassword, image, description} = req.body 
 
         if (password === confirmPassword) {
 
@@ -48,7 +48,25 @@ const assoc_signup = async (req, res, next)=>{
 
 }
 
-module.exports = {assoc_signup}
+const login = async (req, res) =>{
+
+    const { email, password } = req.body
+    
+    const user = await Association.findOne({email});
+    
+    if (!user) return res.status(400).send(`Email Incorrect / Not Found! Please Register First.`);
+    
+    const validPassowrd = bcrypt.compare(password, user.password)
+    
+    if (!validPassowrd) return res.status(400).send('Password incorrect')
+    
+    const token = jwt.sign({ _id: user._id, role: user.role }, 'secret');
+
+    res.status(200).json({ status: 'success', token });
+    
+}
+
+module.exports = {assoc_signup, login}
 
 
 
