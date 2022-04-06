@@ -16,9 +16,6 @@ const Association = mongoose.model(
             type:String,
             required:true
         },
-        confirmPassword:{
-            type:String,
-        },
         image:{
             data: Buffer,
             type: Array
@@ -27,6 +24,18 @@ const Association = mongoose.model(
             type:String,
             required:true
         },
+        phoneNumber: {
+            type: Number,
+            required: true
+        },
+        adress: {
+            type: String,
+            required: true
+        },
+        members: {
+            type: Number,
+            default: 0
+        }
     })
 )
 

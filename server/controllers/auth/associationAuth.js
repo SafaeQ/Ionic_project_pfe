@@ -7,39 +7,37 @@ const {deletedImage} = require('../../utils/deleteFile')
 
 const assoc_signup = async (req, res, next)=>{
     try {
-        const {fullName, email, password, phoneNumber, adress, members, confirmPassword, image, description} = req.body 
+        const {fullName, email, password, phoneNumber, adress, members, image, description} = req.body 
 
-        if (password === confirmPassword) {
+        const oldUser = await Association.findOne({email})
 
-            const oldUser = await Association.findOne({email})
+        if (oldUser) res.status(409).send('😊user already exist, please login')
 
-            if (oldUser) res.status(409).send('😊user already exist, please login')
+        const hashedPassword = getHashedPassword(password)
 
-            const hashedPassword = getHashedPassword(password)
+        const uploadedImageFile = req.files
 
-            const uploadedImageFile = req.files
-            let avatar = [];
-                for (const item of uploadedImageFile) {
-                    avatar.push(item.filename)
-                }
+        let avatar = [];
 
-            const user = await Association.create({
+        for (const item of uploadedImageFile) {
+                avatar.push(item.filename)
+        }
+
+        const user = await Association.create({
                 fullName,
                 email: email.toLowerCase(),
                 password: hashedPassword,
-                confirmPassword,
+                phoneNumber,
+                adress,
+                members,
                 description,
                 image:avatar,
-            })
+        })
 
-            const result = await user.save()
+        const result = await user.save()
 
-            res.status(200).send(result)
+        res.status(200).send(result)
 
-        }else {
-
-            res.send('password does not match ')
-        }
     } catch (error) {
 
         res.status(404).send(error)
