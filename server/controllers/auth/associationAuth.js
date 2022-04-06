@@ -1,6 +1,9 @@
 const Association = require('../../models/association.model')
+
 const getHashedPassword = require('../../utils/hashedPassword')
+
 const {deletedImage} = require('../../utils/deleteFile')
+
 
 const assoc_signup = async (req, res, next)=>{
     try {
@@ -20,7 +23,6 @@ const assoc_signup = async (req, res, next)=>{
                     avatar.push(item.filename)
                 }
 
-            // console.log(req.files);
             const user = await Association.create({
                 fullName,
                 email: email.toLowerCase(),
@@ -29,16 +31,18 @@ const assoc_signup = async (req, res, next)=>{
                 description,
                 image:avatar,
             })
-            console.log('----------------------------------',user);
 
             const result = await user.save()
-            // console.log(result);
+
             res.status(200).send(result)
+
         }else {
+
             res.send('password does not match ')
         }
     } catch (error) {
-        console.log(error);
+
+        res.status(404).send(error)
     }
     
 
