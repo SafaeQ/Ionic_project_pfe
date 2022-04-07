@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-const Category = require("./category.model");
-const Restaurant = require('./restaurant.model')
 
 const Schema = mongoose.Schema;
 
@@ -47,6 +45,6 @@ const repastSchema = new Schema(
   }
 );
 
-const Repast = mongoose.model("Repast", repastSchema);
+const Project = mongoose.model("Project", projectSchema);
 
-module.exports = Repast;
+module.exports = Project;
