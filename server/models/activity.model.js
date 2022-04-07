@@ -1,15 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const CATEGORIES = [
-  "pizzas",
-  "hamburguesas",
-  "sandwiches",
-  "hot dogs",
-  "tacos",
-  "sushi",
-];
-
 const activitieSchema = new Schema(
   {
     title: { 
@@ -47,4 +38,4 @@ const activitieSchema = new Schema(
 
 const Activitie = mongoose.model("Activitie", activitieSchema);
 
-module.exports = { Activitie, CATEGORIES };
+module.exports = { Activitie };
