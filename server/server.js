@@ -12,10 +12,10 @@ app.use(cors())
 app.use(express.static('images'));
 // routes
 const router = require('./routes/routes')
-const assocAuth_router = require('./routes/userAuth.routes')
+const userAuth_router = require('./routes/userAuth.routes')
 
 app.use('/', router)
-app.use('/api', assocAuth_router)
+app.use('/auth', userAuth_router)
 
 db()
     .catch((err)=>{
