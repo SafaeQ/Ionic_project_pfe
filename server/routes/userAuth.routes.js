@@ -2,7 +2,7 @@ const userAuth_router = require('express').Router()
 
 const {assoc_signup, login, donor_signup }= require('../controllers/auth/userAuth.controller')
 
-const {uploads} = require('../utils/uploadImage')
+const { uploads } = require('../utils/uploadImage')
 
 
 
