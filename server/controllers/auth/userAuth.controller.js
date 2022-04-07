@@ -1,5 +1,7 @@
 const Association = require('../../models/association.model')
 
+const Donor = require('../../models/donor.model')
+
 const getHashedPassword = require('../../utils/hashedPassword')
 
 const {deletedImage} = require('../../utils/deleteFile')
@@ -47,6 +49,29 @@ const assoc_signup = async (req, res, next)=>{
 
 }
 
+const donor_signup = async (req, res) => {
+    try {
+        const {name, email, password, role} = req.body
+
+        const oldDonor = await Donor.findOne({email})
+
+        if (oldDonor) res.status(409).send('😊 your email already exist please login!')
+
+        const hashedPassword = getHashedPassword(password)
+
+        const donor = await Donor.create({name, email, password: hashedPassword, role: 'donor'})
+
+        const result = await donor.save()
+
+        res.status(200).send(result)
+
+    } catch (error) {
+
+        res.status(404).send(error)
+    }
+}
+
+
 const login = async (req, res) =>{
 
     const { email, password } = req.body
@@ -65,5 +90,5 @@ const login = async (req, res) =>{
     
 }
 
-module.exports = {assoc_signup, login}
+module.exports = {assoc_signup, login, donor_signup}
 
