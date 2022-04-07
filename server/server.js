@@ -12,7 +12,7 @@ app.use(cors())
 app.use(express.static('images'));
 // routes
 const router = require('./routes/routes')
-const assocAuth_router = require('./routes/association.routes')
+const assocAuth_router = require('./routes/userAuth.routes')
 
 app.use('/', router)
 app.use('/api', assocAuth_router)
