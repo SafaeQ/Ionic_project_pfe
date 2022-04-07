@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const repastSchema = new Schema(
+const projectSchema = new Schema(
   {
     name: { 
         type: String,
@@ -10,7 +10,7 @@ const repastSchema = new Schema(
         lowercase: true,
         trim: true
     },
-    price: { 
+    budget: { 
         type: Number,
         required: true,
         default: 0
@@ -28,15 +28,15 @@ const repastSchema = new Schema(
         lowercase: true,
         trim: true
     },
-    restaurant: { 
+    association: { 
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       trim: true,
-      ref: "Restaurant"
+      ref: "Association"
     },
-    rating: {
-      type: Number,
-      default: 0,
+    images: {
+      data: Buffer,
+      type: Array,
     },  
   },
   {
