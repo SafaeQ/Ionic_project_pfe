@@ -6,7 +6,7 @@ const getHashedPassword = require('../../utils/hashedPassword')
 
 const donor_signup = async (req, res) => {
     try {
-        const {name, email, password} = req.body
+        const {name, email, password, role} = req.body
 
         const oldDonor = await Donor.findOne({email})
 
@@ -14,7 +14,7 @@ const donor_signup = async (req, res) => {
 
         const hashedPassword = getHashedPassword(password)
 
-        const donor = await Donor.create({name, email, password: hashedPassword})
+        const donor = await Donor.create({name, email, password: hashedPassword, role: 'donor'})
 
         const result = await donor.save()
 

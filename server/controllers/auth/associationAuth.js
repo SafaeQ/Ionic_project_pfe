@@ -7,7 +7,7 @@ const {deletedImage} = require('../../utils/deleteFile')
 
 const assoc_signup = async (req, res, next)=>{
     try {
-        const {fullName, email, password, phoneNumber, adress, members, image, description} = req.body 
+        const {fullName, email, password, phoneNumber, adress, members, image, description, role} = req.body 
 
         const oldUser = await Association.findOne({email})
 
@@ -32,6 +32,7 @@ const assoc_signup = async (req, res, next)=>{
                 members,
                 description,
                 image:avatar,
+                role: 'association'
         })
 
         const result = await user.save()
