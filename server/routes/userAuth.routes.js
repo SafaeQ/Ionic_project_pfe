@@ -8,5 +8,9 @@ const {uploads} = require('../utils/uploadImage')
 
     userAuth_router.post('/register',uploads ,assoc_signup)
 
+    userAuth_router.post('/register', assoc_signup)
+
+    userAuth_router.post('/register', assoc_signup)
+
 
 module.exports = userAuth_router
