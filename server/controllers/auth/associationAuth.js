@@ -66,19 +66,3 @@ const login = async (req, res) =>{
 
 module.exports = {assoc_signup, login}
 
-
-
-
-
-
-// if (image === '') {
-//     const unwantedImages = req.file;
-//     deletedImage(unwantedImages);
-//     return res.status(400).send("error");
-//   }
-// const uploadedImageFile = req.file
-// let avatar = [];
-
-//     for (const item in uploadedImageFile) {
-//         avatar.push(item.filename)
-//     }
