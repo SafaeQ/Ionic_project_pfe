@@ -4,6 +4,7 @@ const Project = require('../models/project.model')
 const createProject = async (req, res) => {
 
     const {name, budget, category, description, association} = req.body
+    console.log('hello ', req.body);
     try {
         const imageFiles = req.files
 
@@ -13,7 +14,7 @@ const createProject = async (req, res) => {
 
             uploadImages.push(imageFile.filename)
         }
-        
+
         const project = await Project.create({name, budget, category, description, association, images: uploadImages})
 
         if (!project)  res.status(400).send('some thing wrong') 
