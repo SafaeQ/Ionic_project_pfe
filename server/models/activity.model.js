@@ -9,7 +9,7 @@ const activitieSchema = new Schema(
         lowercase: true
         },
     description: {
-        type: Number,
+        type: String,
         default: 0 
         },
     image: { 
