@@ -25,10 +25,13 @@ const router = require('./routes/routes')
 
 const userAuth_router = require('./routes/userAuth.routes')
 
+const projectRouter = require('./routes/project.routes')
 
-app.use('/', router)
+
+app.use('/', router, projectRouter)
 
 app.use('/auth', userAuth_router)
+
 
 // running my server
 db().catch((err)=>{ throw err }).then(()=>{ app.listen(9900,()=>{ console.log(` 🐱The server is runnig`); }) })
