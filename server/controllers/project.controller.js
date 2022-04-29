@@ -69,19 +69,26 @@ const getProjectById = (req, res) => {
 }
 
 const updateProject = async (req, res) => {
-
+    
     try{
     const id = req.params.id
 
-    const project = await Project.findByIdAndUpdate(id)
-
+    const {name, budget, description, images} = req.body
+    
+    const project = await Project.updateOne({_id: id}, {
+        name: name,
+        budget: budget,
+        description: description,
+        images: images
+    })
+    console.log('rrrr', req.body);
     if (!project) {
         return res.status(404).send({ success: false, message: "Project not found with id " + id });
     }
 
     res.send({
         success: true,
-        data: project
+        message: 'Project updated succefully'
     })
 
     } catch (error) {
