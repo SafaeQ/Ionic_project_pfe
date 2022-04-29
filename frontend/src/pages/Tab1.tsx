@@ -21,6 +21,7 @@ const Tab1: React.FC = () => {
         </IonHeader>
         <ExploreContainer name="Tab 1 page" />
             <h1>heyyy</h1>
+            <IonButtons> click me</IonButtons>
       </IonContent>
     </IonPage>
   );

@@ -16,11 +16,9 @@ const upload = multer({
 });
 
 
-const uploads = upload.array('image', 8);
+// const uploads = upload.array('image', 8);
 
 
 
 
- module.exports= {
-    uploads,
-};
+ module.exports= upload
