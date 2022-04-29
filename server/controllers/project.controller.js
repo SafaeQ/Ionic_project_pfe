@@ -46,21 +46,49 @@ const getAllProject = (req, res) => {
     });
 }
 
-const getProjectById = async (req, res) => {
+const getProjectById = (req, res) => {
 
-    try {
-        const id = req.params.id
+    const id = req.params.id
 
-        const project = await Project.findById(id)
+    Project.findById(id)
+        .then(data => {
 
-        res.status(200).send(project)
+            if(!data) return res.status(404).send({ success: false, message: "Project not found with id " + id });
+            
+            res.send({ success: true, message: 'Project successfully retrieved', data: data });
 
-    } catch (error) {
-        res.status(500).send(error)
-    }
-    
+        }).catch(err => {
 
-
+        if(err.kind === 'ObjectId') return res.status(404).send({ success: false, message: "Project not found with id " + id });
+        
+        return res.status(500).send({
+            success: false,
+            message: "Error retrieving Project with id " + id
+        });
+    });
 }
 
-module.exports = {createProject, getAllProject, getProjectById}
+const updateProject = async (req, res) => {
+
+    try{
+    const id = req.params.id
+
+    const project = await Project.findByIdAndUpdate(id)
+
+    if (!project) {
+        return res.status(404).send({ success: false, message: "Project not found with id " + id });
+    }
+
+    res.send({
+        success: true,
+        data: project
+    })
+
+    } catch (error) {
+        return res.status(500).send({
+            success: false,
+            message: error
+        })
+    }
+}
+module.exports = {createProject, getAllProject, getProjectById, updateProject}
