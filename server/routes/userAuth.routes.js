@@ -2,11 +2,11 @@ const userAuth_router = require('express').Router()
 
 const {assoc_signup, login, donor_signup }= require('../controllers/auth/userAuth.controller')
 
-const { uploads } = require('../utils/uploadImage')
+const upload = require('../utils/uploadImage')
 
 
 
-    userAuth_router.post('/register-association',uploads ,assoc_signup)
+    userAuth_router.post('/register-association',upload.array('image', 8) ,assoc_signup)
 
     userAuth_router.post('/register-donor', donor_signup)
 

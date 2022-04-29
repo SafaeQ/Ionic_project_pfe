@@ -28,7 +28,9 @@ const userAuth_router = require('./routes/userAuth.routes')
 const projectRouter = require('./routes/project.routes')
 
 
-app.use('/', router, projectRouter)
+app.use('/', router)
+
+app.use('/api', projectRouter)
 
 app.use('/auth', userAuth_router)
 
