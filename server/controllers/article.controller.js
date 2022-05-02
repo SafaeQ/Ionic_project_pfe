@@ -3,7 +3,7 @@ const Article = require('../models/article.model')
 
 const createArticle = async (req, res) => {
 
-    const {title, description, project_id, date} = req.body
+    const {title, description, project_id, date, progress} = req.body
     
     try {
         const imageFiles = req.files
@@ -15,7 +15,7 @@ const createArticle = async (req, res) => {
             uploadImages.push(imageFile.filename)
         }
 
-        const article = await Article.create({title,description, project_id, date, images: uploadImages})
+        const article = await Article.create({title, description, project_id, date, progress, images: uploadImages})
 
         if (!article)  res.status(400).send('some thing wrong') 
 
@@ -69,7 +69,7 @@ const updateArticle = async (req, res) => {
     try{
     const id = req.params.id
 
-    const {title, date, project_id, description} = req.body
+    const {title, date, project_id, description, progress} = req.body
 
     const imageFiles = req.files
 
@@ -85,6 +85,7 @@ const updateArticle = async (req, res) => {
         date: date,
         project_id: project_id,
         description: description,
+        progress: progress,
         images: uploadImages
     })
     
