@@ -73,13 +73,22 @@ const updateProject = async (req, res) => {
     try{
     const id = req.params.id
 
-    const {name, budget, description, images} = req.body
+    const {name, budget, description} = req.body
+
+    const imageFiles = req.files//
+
+    const uploadImages = []
+
+    for (const imageFile of imageFiles) {
+
+        uploadImages.push(imageFile.filename)
+    }
     
     const project = await Project.updateOne({_id: id}, {
         name: name,
         budget: budget,
         description: description,
-        images: images
+        images: uploadImages
     })
     console.log('rrrr', req.body);
     if (!project) {
