@@ -107,4 +107,15 @@ const updateProject = async (req, res) => {
         })
     }
 }
+
+const deleteProject = (req, res) => {
+    const id = req.params.id
+
+    const projectDeleted = Project.findOneAndRemove(id)
+
+    projectDeleted.then((data)=> { res.status(200).send({message:'project has been deleted', success:true, data: data})})
+                .catch((error)=> { res.status(404).send({ success: false, message:error })})
+        
+    
+}
 module.exports = {createProject, getAllProject, getProjectById, updateProject}
