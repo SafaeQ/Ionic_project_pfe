@@ -1,6 +1,6 @@
 const articleRouter = require('express').Router()
 
-const {createArticle, getAllArticles, getArticleById, updateArticle, deleteArticle} = require('../controllers/project.controller')
+const {createArticle, getAllArticles, getArticleById, updateArticle, deleteArticle} = require('../controllers/article.controller')
 
 const upload = require('../utils/uploadImage')
 

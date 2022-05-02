@@ -27,10 +27,14 @@ const userAuth_router = require('./routes/userAuth.routes')
 
 const projectRouter = require('./routes/project.routes')
 
+const articleRouter = require('./routes/article.routes')
+
 
 app.use('/', router)
 
-app.use('/api', projectRouter)
+app.use('/api', projectRouter, articleRouter)
+
+// app.use('/api', articleRouter)
 
 app.use('/auth', userAuth_router)
 
