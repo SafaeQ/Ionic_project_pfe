@@ -27,7 +27,7 @@ const createArticle = async (req, res) => {
     }
 }
 
-const getAllArticles = (req, res) => {
+const getAllArticles = async (req, res) => {
     
     try {
         const article = await Article.find()
@@ -46,4 +46,23 @@ const getAllArticles = (req, res) => {
     }
 }
 
-module.exports = { createArticle, getAllArticles, }
+const getArticleById = async (req, res) => {
+
+    try {
+        const id = req.params.id
+
+        const article = await Article.findById(id)
+                
+        res.send({ success: true, message: 'Project successfully retrieved', data: article });
+    
+    } catch (error) {
+        
+        return res.status(500).send({
+            success: false,
+            message: "Error retrieving Project with id " + id,
+            error
+        });
+    }
+}
+
+module.exports = { createArticle, getAllArticles, getArticleById}
