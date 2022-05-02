@@ -59,9 +59,49 @@ const getArticleById = async (req, res) => {
         
         return res.status(500).send({
             success: false,
-            message: "Error retrieving Project with id " + id,
-            error
+            message: error,
         });
+    }
+}
+
+const updateArticle = async (req, res) => {
+    
+    try{
+    const id = req.params.id
+
+    const {title, date, project_id, description} = req.body
+
+    const imageFiles = req.files
+
+    const uploadImages = []
+
+    for (const imageFile of imageFiles) {
+
+        uploadImages.push(imageFile.filename)
+    }
+    
+    const articleUpdate = await Article.updateOne({_id: id}, {
+        title: title,
+        date: date,
+        project_id: project_id,
+        description: description,
+        images: uploadImages
+    })
+    
+    if (!articleUpdate) {
+        return res.status(404).send({ success: false, message: "Article not found with id " + id });
+    }
+
+    res.send({
+        success: true,
+        message: 'Article updated succefully'
+    })
+
+    } catch (error) {
+        return res.status(500).send({
+            success: false,
+            message: error
+        })
     }
 }
 
