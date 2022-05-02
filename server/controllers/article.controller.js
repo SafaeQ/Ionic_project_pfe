@@ -27,4 +27,23 @@ const createArticle = async (req, res) => {
     }
 }
 
-module.exports = { createArticle, }
+const getAllArticles = (req, res) => {
+    
+    try {
+        const article = await Article.find()
+        
+        let message = ''
+
+        if (article === undefined || article.length == 0) message = "No project found!";
+
+        else message = 'projects successfully retrieved';
+
+        res.send({ success: true, message: message, data: article });
+
+    } catch (error) {
+        
+        res.status(404).send(error)
+    }
+}
+
+module.exports = { createArticle, getAllArticles, }
