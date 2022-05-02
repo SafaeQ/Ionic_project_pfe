@@ -105,4 +105,4 @@ const updateArticle = async (req, res) => {
     }
 }
 
-module.exports = { createArticle, getAllArticles, getArticleById}
+module.exports = { createArticle, getAllArticles, getArticleById, updateArticle}
