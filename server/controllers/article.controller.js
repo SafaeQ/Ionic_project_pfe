@@ -105,4 +105,22 @@ const updateArticle = async (req, res) => {
     }
 }
 
-module.exports = { createArticle, getAllArticles, getArticleById, updateArticle}
+const deleteArticle = (req, res) => {
+    
+    const id = req.params.id
+
+    const articleDeleted = Article.findOneAndRemove(id)
+
+    articleDeleted.then((data)=> { 
+                    res.status(200).send({
+                        message:'article has been deleted',
+                        success:true, data: data
+                    })})
+                .catch((error)=> { 
+                    res.status(404).send({
+                        success: false, 
+                        message:error 
+                    })})
+}
+
+module.exports = { createArticle, getAllArticles, getArticleById, updateArticle, deleteArticle}
