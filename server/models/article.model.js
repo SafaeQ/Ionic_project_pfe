@@ -24,7 +24,11 @@ const articleSchema = new Schema(
     date: {
       type: Date,
       default: Date.now()
-    }
+    }, 
+    progress : {
+      type: Boolean,
+      default: false
+  }
   },
   {
     timestamps: true,
