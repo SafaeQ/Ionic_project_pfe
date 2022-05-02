@@ -6,11 +6,11 @@ const articleSchema = new Schema(
     title: { 
         type: String,
         require: true,
-        lowercase: true
         },
     description: {
         type: Number,
-        default: 0 
+        default: 0, 
+        required: true
         },
     image: { 
         type: Array,
@@ -20,6 +20,10 @@ const articleSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'Project'
+    },
+    date: {
+      type: Date,
+      default: Date.now()
     }
   },
   {
