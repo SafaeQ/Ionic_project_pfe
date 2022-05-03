@@ -13,11 +13,7 @@ const categorySchema = new Schema(
         type: String,
         require: true,
         lowercase: true
-        },
-    active: { 
-        type: Boolean,
-        default: true
-        },
+    },
     project: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
