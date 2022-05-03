@@ -5,10 +5,10 @@ const articleSchema = new Schema(
   {
     title: { 
         type: String,
-        require: true,
+        required: true,
         },
     description: {
-        type: Number,
+        type: String,
         default: 0, 
         required: true
         },

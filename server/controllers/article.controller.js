@@ -15,7 +15,7 @@ const createArticle = async (req, res) => {
             uploadImages.push(imageFile.filename)
         }
 
-        const article = await Article.create({title, description, project_id, date, progress, images: uploadImages})
+        const article = await Article.create({title, description, project_id, date, progress, image: uploadImages})
 
         if (!article)  res.status(400).send('some thing wrong') 
 
