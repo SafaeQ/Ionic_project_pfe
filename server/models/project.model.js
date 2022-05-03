@@ -16,9 +16,8 @@ const projectSchema = new Schema(
         default: 0
     },
     category: { 
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
-        lowercase: true,
         trim: true,
         ref: "Category"
     },

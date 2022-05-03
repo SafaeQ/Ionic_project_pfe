@@ -29,10 +29,12 @@ const projectRouter = require('./routes/project.routes')
 
 const articleRouter = require('./routes/article.routes')
 
+const categoryRouter = require('./routes/categories.routes')
+
 
 app.use('/', router)
 
-app.use('/api', projectRouter, articleRouter)
+app.use('/api', projectRouter, articleRouter, categoryRouter)
 
 // app.use('/api', articleRouter)
 

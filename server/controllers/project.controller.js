@@ -29,7 +29,7 @@ const createProject = async (req, res) => {
 
 const getAllProject = (req, res) => {
     
-    Project.find().populate('association')//.populate('category')
+    Project.find().populate('association').populate('category')
         .then(data => {
             
             let message = "";
