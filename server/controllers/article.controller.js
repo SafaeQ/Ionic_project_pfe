@@ -36,7 +36,7 @@ const getAllArticles = async (req, res) => {
 
         if (article === undefined || article.length == 0) message = "No project found!";
 
-        else message = 'projects successfully retrieved';
+        else message = 'articles successfully retrieved';
 
         res.send({ success: true, message: message, data: article });
 
@@ -53,7 +53,7 @@ const getArticleById = async (req, res) => {
 
         const article = await Article.findById(id)
                 
-        res.send({ success: true, message: 'Project successfully retrieved', data: article });
+        res.send({ success: true, message: 'Article successfully retrieved', data: article });
     
     } catch (error) {
         
@@ -70,9 +70,9 @@ const updateArticle = async (req, res) => {
     const id = req.params.id
 
     const {title, date, project_id, description, progress} = req.body
-
+        
     const imageFiles = req.files
-
+        
     const uploadImages = []
 
     for (const imageFile of imageFiles) {
@@ -86,7 +86,7 @@ const updateArticle = async (req, res) => {
         project_id: project_id,
         description: description,
         progress: progress,
-        images: uploadImages
+        image: uploadImages
     })
     
     if (!articleUpdate) {

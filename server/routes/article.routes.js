@@ -11,9 +11,9 @@ const upload = require('../utils/uploadImage')
 
     articleRouter.get('/article/:id', getArticleById)
 
-    articleRouter.put('/update-article/:id', updateArticle)
+    articleRouter.put('/update-article/:id', upload.array('images', 8), updateArticle)
 
-    articleRouter.put('/delete-article/:id', deleteArticle)
+    articleRouter.delete('/delete-article/:id', deleteArticle)
 
 
 module.exports = articleRouter
