@@ -30,7 +30,7 @@ const createArticle = async (req, res) => {
 const getAllArticles = async (req, res) => {
     
     try {
-        const article = await Article.find()
+        const article = await Article.find().populate('project_id')
         
         let message = ''
 
