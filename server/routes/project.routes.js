@@ -1,6 +1,6 @@
 const projectRouter = require('express').Router()
 
-const {createProject, getAllProject, getProjectById, updateProject} = require('../controllers/project.controller')
+const {createProject, getAllProject, getProjectById, updateProject, deleteProject} = require('../controllers/project.controller')
 
 const upload = require('../utils/uploadImage')
 
@@ -12,6 +12,8 @@ const upload = require('../utils/uploadImage')
     projectRouter.get('/projects/:id', getProjectById)
 
     projectRouter.put('/update-project/:id', updateProject)
+
+    projectRouter.delete('/delete-project/:id', deleteProject)
 
 
 module.exports = projectRouter
