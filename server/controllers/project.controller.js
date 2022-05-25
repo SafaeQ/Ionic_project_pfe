@@ -9,9 +9,12 @@ const createProject = async (req, res) => {
     
     try {
         const { error } = projectValidation(req.body);
+
         if (error) {
-            const unwantedImagesRoom = req.files;
-            deleteFile.deleteFile(unwantedImagesRoom);
+            const unwantedImages = req.files;
+
+            deleteFile.deleteFile(unwantedImages);
+
             return res.status(400).send(error.details[0].message);
         }
 
