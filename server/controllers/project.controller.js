@@ -1,11 +1,20 @@
 const Project = require('../models/project.model')
 
+const projectValidation = require('../validation/projectValidation')
+
 
 const createProject = async (req, res) => {
 
     const {name, budget, category, description, association} = req.body
     
     try {
+        const { error } = projectValidation(req.body);
+        if (error) {
+            const unwantedImagesRoom = req.files;
+            deleteFile.deleteFile(unwantedImagesRoom);
+            return res.status(400).send(error.details[0].message);
+        }
+
         const imageFiles = req.files
 
         const uploadImages = []
