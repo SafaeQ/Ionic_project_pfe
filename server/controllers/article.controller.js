@@ -142,7 +142,7 @@ const deleteArticle = (req, res) => {
     articleDeleted.then((data)=> { 
                     res.status(200).send({
                         message:'article has been deleted',
-                        success:true, data: data
+                        success:true,
                     })})
                 .catch((error)=> { 
                     res.status(404).send({
