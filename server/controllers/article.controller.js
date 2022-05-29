@@ -153,4 +153,12 @@ const deleteArticle = (req, res) => {
                     })})
 }
 
-module.exports = { createArticle, getAllArticles, getArticleById, updateArticle, deleteArticle}
+const deleteAll = (req, res) => {
+
+    const removedArticle = Article.deleteMany({progress:{$gte:false}})
+
+    res.status(200).json({data: removedArticle, message: ' deleted all'})
+}
+
+
+module.exports = { createArticle, getAllArticles, getArticleById, updateArticle, deleteArticle, deleteAll}

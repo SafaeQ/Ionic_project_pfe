@@ -1,6 +1,6 @@
 const articleRouter = require('express').Router()
 
-const {createArticle, getAllArticles, getArticleById, updateArticle, deleteArticle} = require('../controllers/article.controller')
+const {createArticle, getAllArticles, getArticleById, updateArticle, deleteArticle, deleteAll} = require('../controllers/article.controller')
 
 const upload = require('../utils/uploadImage')
 
@@ -14,6 +14,8 @@ const upload = require('../utils/uploadImage')
     articleRouter.put('/update-article/:id', upload.array('images', 8), updateArticle)
 
     articleRouter.delete('/delete-article/:id', deleteArticle)
+
+    articleRouter.delete('/delete/', deleteAll)
 
 
 module.exports = articleRouter
