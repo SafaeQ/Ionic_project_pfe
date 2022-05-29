@@ -32,7 +32,7 @@ const createArticle = async (req, res) => {
 
         if (!article)  res.status(400).send('some thing wrong') 
 
-        res.json({ status: "success", message: `Registration successful ${article}` });
+        res.json({ status: "success", message: `Registration successful ${article}`, data: value });
 
     }
 
