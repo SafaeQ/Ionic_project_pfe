@@ -33,7 +33,7 @@ const assoc_signup = async (req, res, next)=>{
                 adress,
                 members,
                 description,
-                image:avatar,
+                image: avatar,
                 role: 'association'
         })
 
