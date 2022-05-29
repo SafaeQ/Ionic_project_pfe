@@ -67,8 +67,10 @@ const getArticleById = async (req, res) => {
         const id = req.params.id
 
         const article = await Article.findById(id)
+
+        if(!article) return res.send({message: 'Article not found', data: article})
                 
-        res.send({ success: true, message: 'Article successfully retrieved', data: article });
+        else return res.send({ success: true, message: 'Article successfully retrieved', data: article });
     
     } catch (error) {
         
