@@ -9,15 +9,15 @@ const createArticle = async (req, res) => {
     
     try {
         
-        // const { value, error } = articleValidation(req.body);
+        const { value, error } = articleValidation(req.body);
 
-        // if (error) {
+        if (error) {
 
-        //     const message = error.details.map(x => x.message);
+            const message = error.details.map(x => x.message);
     
-        //     res.status(400).json({ status: "error", message: "Invalid request data", data: message });
+            res.status(400).json({ status: "error", message: "Invalid request data", data: message });
 
-        // } else {
+        } else {
 
         const imageFiles = req.files
 
@@ -32,9 +32,9 @@ const createArticle = async (req, res) => {
 
         if (!article)  res.status(400).send('some thing wrong') 
 
-        res.json({ status: "success", message:article,  });
+        res.json({ status: "success", message: `Registration successful ${article}`, data: value });
 
-    // }data: value
+    }
 
     } catch (error) {
 
