@@ -8,6 +8,7 @@ const articleValidation = (data) => {
     date: Joi.date().min('01-01-2003').required(),
     description: Joi.string().min(20).required(),
     progress: Joi.boolean().required(),
+    images: Joi.array().required(),
     project_id: Joi.objectId(),
 });
   return schema.validate(data);

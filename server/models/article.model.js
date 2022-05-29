@@ -12,7 +12,7 @@ const articleSchema = new Schema(
         default: 0, 
         required: true
         },
-    image: { 
+    images: { 
         type: Array,
         data: Buffer
         },
