@@ -1,12 +1,14 @@
 const Article = require('../models/article.model')
 
+const articleValidation = require('../validation/articleValidation')
+
 
 const createArticle = async (req, res) => {
 
     const {title, description, project_id, date, progress} = req.body
     
     try {
-        const { value, error } = validation;
+        const { value, error } = articleValidation(req.body);
 
         if (error) {
 
