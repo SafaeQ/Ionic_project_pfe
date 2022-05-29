@@ -1,6 +1,6 @@
-const Joi = require("joi");
+const Joi = require("joi-oid");
 
-Joi.objectId = require('joi-objectid')(Joi)
+// Joi.objectId = require('joi-objectid')(Joi)
 
 const articleValidation = (data) => {
   const schema = Joi.object({
