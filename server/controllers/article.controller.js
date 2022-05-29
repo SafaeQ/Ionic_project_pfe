@@ -6,6 +6,16 @@ const createArticle = async (req, res) => {
     const {title, description, project_id, date, progress} = req.body
     
     try {
+        const { value, error } = validation;
+
+        if (error) {
+
+            const message = error.details.map(x => x.message);
+    
+            res.status(400).json({ status: "error", message: "Invalid request data", data: message });
+
+        } else {
+
         const imageFiles = req.files
 
         const uploadImages = []
@@ -19,7 +29,14 @@ const createArticle = async (req, res) => {
 
         if (!article)  res.status(400).send('some thing wrong') 
 
-        res.status(200).send(article)
+        // res.status(200).send(article)
+        res.json({
+            status: "success",
+            message: `Registration successful ${article}`,
+            data: value
+          });
+
+    }
 
     } catch (error) {
 
