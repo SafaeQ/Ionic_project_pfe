@@ -82,37 +82,49 @@ const getArticleById = async (req, res) => {
 const updateArticle = async (req, res) => {
     
     try{
-    const id = req.params.id
+        const id = req.params.id
 
-    const {title, date, project_id, description, progress} = req.body
-        
-    const imageFiles = req.files
-        
-    const uploadImages = []
+        const {title, date, project_id, description, progress} = req.body
 
-    for (const imageFile of imageFiles) {
+        const { value, error } = articleValidation(req.body);
 
-        uploadImages.push(imageFile.filename)
-    }
+        if (error) {
+
+            const message = error.details.map(x => x.message);
     
-    const articleUpdate = await Article.updateOne({_id: id}, {
-        title: title,
-        date: date,
-        project_id: project_id,
-        description: description,
-        progress: progress,
-        image: uploadImages
-    })
-    
-    if (!articleUpdate) {
-        return res.status(404).send({ success: false, message: "Article not found with id " + id });
+            res.status(400).json({ status: "error", message: "Invalid request data", data: message });
+
+        } else {
+            
+        const imageFiles = req.files
+            
+        const uploadImages = []
+
+        for (const imageFile of imageFiles) {
+
+            uploadImages.push(imageFile.filename)
+        }
+        
+        const articleUpdate = await Article.updateOne({_id: id}, {
+            title: title,
+            date: date,
+            project_id: project_id,
+            description: description,
+            progress: progress,
+            image: uploadImages
+        })
+        
+        if (!articleUpdate) {
+            return res.status(404).send({ success: false, message: "Article not found with id " + id });
+        }
+
+        res.send({
+            success: true,
+            message: 'Article updated succefully',
+            data: value
+        })
+
     }
-
-    res.send({
-        success: true,
-        message: 'Article updated succefully'
-    })
-
     } catch (error) {
         return res.status(500).send({
             success: false,
