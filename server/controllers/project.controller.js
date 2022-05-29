@@ -11,9 +11,9 @@ const createProject = async (req, res) => {
         const { error } = projectValidation(req.body);
 
         if (error) {
-            const unwantedImages = req.files;
+            // const unwantedImages = req.files;
 
-            deleteFile.deleteFile(unwantedImages);
+            // deleteFile.deleteFile(unwantedImages);
 
             return res.status(400).send(error.details[0].message);
         }
