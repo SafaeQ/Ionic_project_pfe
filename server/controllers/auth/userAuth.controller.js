@@ -4,6 +4,10 @@ const Donor = require('../../models/donor.model')
 
 const getHashedPassword = require('../../utils/hashedPassword')
 
+const bcrypt = require('bcryptjs')
+
+let jwt = require('jsonwebtoken')
+
 
 const assoc_signup = async (req, res, next)=>{
     try {
@@ -71,20 +75,25 @@ const donor_signup = async (req, res) => {
 
 
 const login = async (req, res) =>{
-
-    const { email, password } = req.body
-    console.log(email);
-    const user = await Association.findOne({email});
-    
-    if (!user) return res.status(400).send(`Email Incorrect / Not Found! Please Register First.`);
-    
-    const validPassowrd = bcrypt.compare(password, user.password)
-    
-    if (!validPassowrd) return res.status(400).send('Password incorrect')
-    
-    const token = jwt.sign({ _id: user._id, role: user.role }, 'secret');
-
-    res.status(200).json({ status: 'success', token });
+    try {
+        const { email, password } = req.body
+        
+        const user = await Association.findOne({email});
+        
+        if (!user) return res.status(400).send(`Email Incorrect / Not Found! Please Register First.`);
+        
+        const validPassowrd = bcrypt.compareSync(password, user.password)
+        
+        if (!validPassowrd) return res.status(400).send('Password incorrect')
+        
+        const token = jwt.sign({ _id: user._id, role: user.role }, 'secret');
+        
+        res.status(200).json({ status: 'success', token });
+    } catch (error) {
+        
+        res.status(404).send(error)
+    }
+   
     
 }
 
