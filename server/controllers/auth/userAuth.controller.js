@@ -73,7 +73,7 @@ const donor_signup = async (req, res) => {
 const login = async (req, res) =>{
 
     const { email, password } = req.body
-    
+    console.log(email);
     const user = await Association.findOne({email});
     
     if (!user) return res.status(400).send(`Email Incorrect / Not Found! Please Register First.`);
