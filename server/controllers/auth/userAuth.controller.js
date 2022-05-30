@@ -89,14 +89,34 @@ const login = async (req, res) =>{
         const token = jwt.sign({ _id: user._id, role: user.role }, 'secret');
         
         res.status(200).json({ status: 'success', token });
-        
+
     } catch (error) {
         
         res.status(404).send(error)
     }
-   
-    
 }
 
-module.exports = {assoc_signup, login, donor_signup}
+const loginDonor = async (req, res) =>{
+    try {
+        const { email, password } = req.body
+        
+        const donor = await Donor.findOne({email});
+        
+        if (!donor) return res.status(400).send(`Email Incorrect / Not Found! Please Register First.`);
+        
+        const validPassowrd = bcrypt.compare(password, donor.password)
+        
+        if (!validPassowrd) return res.status(400).send('Password incorrect')
+        
+        const token = jwt.sign({ _id: donor._id, role: donor.role }, 'secret');
+        
+        res.status(200).json({ status: 'success', token });
+
+    } catch (error) {
+        
+        res.status(404).send(error)
+    }
+}
+
+module.exports = {assoc_signup, login, donor_signup, loginDonor}
 
