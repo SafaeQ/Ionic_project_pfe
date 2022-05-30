@@ -14,7 +14,7 @@ const assoc_signup = async (req, res, next)=>{
         const {fullName, email, password, phoneNumber, adress, members, image, description, role} = req.body 
 
         const oldUser = await Association.findOne({email})
-
+        
         if (oldUser) res.status(409).send('😊user already exist, please login')
 
         const hashedPassword = getHashedPassword(password)
@@ -54,8 +54,8 @@ const assoc_signup = async (req, res, next)=>{
 const donor_signup = async (req, res) => {
     try {
         const {fullName, email, password, role} = req.body
-
-        const oldDonor = await Donor.findOne({email})
+        
+        const oldDonor = await Donor.findOne({ email })
 
         if (oldDonor) res.status(409).send('😊 your email already exist please login!')
 
