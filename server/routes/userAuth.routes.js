@@ -6,7 +6,7 @@ const upload = require('../utils/uploadImage')
 
 
 
-    userAuth_router.post('/register-association',upload.array('images', 8) ,assoc_signup)
+    userAuth_router.post('/register-association',upload.array('image', 8) ,assoc_signup)
 
     userAuth_router.post('/register-donor', donor_signup)
 

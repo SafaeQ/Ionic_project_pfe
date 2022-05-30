@@ -4,8 +4,6 @@ const Donor = require('../../models/donor.model')
 
 const getHashedPassword = require('../../utils/hashedPassword')
 
-const {deletedImage} = require('../../utils/deleteFile')
-
 
 const assoc_signup = async (req, res, next)=>{
     try {
