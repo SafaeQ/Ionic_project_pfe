@@ -82,7 +82,7 @@ const login = async (req, res) =>{
         
         if (!user) return res.status(400).send(`Email Incorrect / Not Found! Please Register First.`);
         
-        const validPassowrd = bcrypt.compareSync(password, user.password)
+        const validPassowrd = bcrypt.compare(password, user.password)
         
         if (!validPassowrd) return res.status(400).send('Password incorrect')
         
