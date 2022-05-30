@@ -53,7 +53,7 @@ const assoc_signup = async (req, res, next)=>{
 
 const donor_signup = async (req, res) => {
     try {
-        const {name, email, password, role} = req.body
+        const {fullName, email, password, role} = req.body
 
         const oldDonor = await Donor.findOne({email})
 
@@ -61,7 +61,7 @@ const donor_signup = async (req, res) => {
 
         const hashedPassword = getHashedPassword(password)
 
-        const donor = await Donor.create({name, email, password: hashedPassword, role: 'donor'})
+        const donor = await Donor.create({fullName, email, password: hashedPassword, role: 'donor'})
 
         const result = await donor.save()
 

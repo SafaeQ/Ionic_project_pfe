@@ -16,6 +16,10 @@ const Donor = mongoose.model(
             type:String,
             required:true
         },
+        role: {
+            type: String,
+            default: 'donor'
+        }
     })
 )
 

@@ -35,6 +35,10 @@ const Association = mongoose.model(
         members: {
             type: Number,
             default: 0
+        },
+        role: {
+            type: String,
+            default: 'association'
         }
     })
 )
