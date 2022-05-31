@@ -81,34 +81,35 @@ const getProjectById = (req, res) => {
 const updateProject = async (req, res) => {
     
     try{
-    const id = req.params.id
+        const id = req.params.id
 
-    const {name, budget, description} = req.body
+        const {name, budget, description} = req.body
 
-    const imageFiles = req.files//
+        const imageFiles = req.files
 
-    const uploadImages = []
+        const uploadImages = []
 
-    for (const imageFile of imageFiles) {
+        for (const imageFile of imageFiles) {
 
-        uploadImages.push(imageFile.filename)
-    }
-    
-    const project = await Project.updateOne({_id: id}, {
-        name: name,
-        budget: budget,
-        description: description,
-        images: uploadImages
-    })
-    console.log('rrrr', req.body);
-    if (!project) {
-        return res.status(404).send({ success: false, message: "Project not found with id " + id });
-    }
+            uploadImages.push(imageFile.filename)
+        }
+        
+        const project = await Project.updateOne({_id: id}, {
+            name: name,
+            budget: budget,
+            description: description,
+            images: uploadImages
+        })
+        
+        if (!project) {
+            return res.status(404).send({ success: false, message: "Project not found with id " + id });
+        }
 
-    res.send({
-        success: true,
-        message: 'Project updated succefully'
-    })
+        res.send({
+            success: true,
+            message: 'Project updated succefully',
+            data: project
+        })  
 
     } catch (error) {
         return res.status(500).send({

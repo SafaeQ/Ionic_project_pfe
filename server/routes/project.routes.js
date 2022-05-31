@@ -11,7 +11,7 @@ const upload = require('../utils/uploadImage')
 
     projectRouter.get('/projects/:id', getProjectById)
 
-    projectRouter.put('/update-project/:id', updateProject)
+    projectRouter.put('/update-project/:id', upload.array('images', 8), updateProject)
 
     projectRouter.delete('/delete-project/:id', deleteProject)
 
