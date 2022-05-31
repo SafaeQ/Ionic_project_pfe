@@ -6,11 +6,10 @@ const Home: React.FC = () => {
   return (
     <IonPage>
         <IonHeader>
-				{/* <IonToolbar className="ion-no-margin ion-no-padding"> */}
-					<IonImg src="/assets/login2.jpeg" />
-				{/* </IonToolbar> */}
-			</IonHeader>
-			<IonContent fullscreen>
+					<IonImg src="../assets/images/media.png"/>
+		</IonHeader>
+        
+		<IonContent fullscreen>
 
 				
 					<IonGrid>
@@ -29,13 +28,12 @@ const Home: React.FC = () => {
 						</IonRow>
 					</IonGrid>
 			
-			</IonContent>
+		</IonContent>
 
-			<IonFooter>
-				<IonGrid>
-					{/* <Action message="Already got an account?" text="Login" link="/login" /> */}
-				</IonGrid>
-			</IonFooter>
+		<IonFooter>
+			<IonGrid>
+				{/* <Action message="Already got an account?" text="Login" link="/login" /> */}				</IonGrid>
+		</IonFooter>
     </IonPage>
   );
 };
