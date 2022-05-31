@@ -85,6 +85,14 @@ const updateProject = async (req, res) => {
 
         const {name, budget, description} = req.body
 
+        const { error } = projectValidation(req.body);
+
+        if (error) {
+
+            return res.status(400).send(error.details[0].message);
+            
+        }
+
         const imageFiles = req.files
 
         const uploadImages = []
