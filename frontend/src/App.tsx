@@ -35,6 +35,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import LoginAsso from './components/LoginAsso';
 
 setupIonicReact();
 
@@ -43,10 +44,13 @@ const App: React.FC = () => (
     <IonReactRouter>
       <Menu/>
       <IonTabs>
-        
+
         <IonRouterOutlet id='menu'>
-          <Route exact path="/Home">
+          <Route exact path="/home">
             <Home />
+          </Route>
+          <Route exact path="/login">
+            <LoginAsso />
           </Route>
           
           <Route exact path="/tab1">
