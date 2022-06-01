@@ -12,8 +12,11 @@ function LoginAsso() {
         </IonHeader>
 
         <IonContent fullscreen>
-
-
+            <IonHeader collapse="condense">
+                <IonToolbar>
+                    <IonTitle size="large">Login</IonTitle>
+                </IonToolbar>
+            </IonHeader>
         </IonContent>
 
         <IonFooter>
