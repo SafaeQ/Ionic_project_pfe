@@ -48,6 +48,7 @@ function LoginAsso() {
                 <IonRow className="justify-content-md-center">
                     <IonCol size="12" className="col-md-12 text-center">
                         <Action message="If you don't have an account please" text="Sign up" link="/signup" />
+                        <Action message="Donor" text="Sign up Donor" link="/signup" />
                         <Wave/>
                     </IonCol>
                 </IonRow>
