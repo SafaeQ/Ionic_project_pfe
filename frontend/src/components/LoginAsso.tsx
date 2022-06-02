@@ -23,7 +23,7 @@ function LoginAsso() {
                     <IonCol >
                         <IonItem>
                             <IonLabel position='floating'> Your Email</IonLabel>
-                            <IonInput></IonInput>
+                            <IonInput type='email'></IonInput>
                         </IonItem>
                     </IonCol>
                 </IonRow>
@@ -31,7 +31,7 @@ function LoginAsso() {
                     <IonCol>
                         <IonItem>
                             <IonLabel position='floating'> Your Password</IonLabel>
-                            <IonInput></IonInput>
+                            <IonInput type='password'></IonInput>
                         </IonItem>
                     </IonCol>
                 </IonRow>
