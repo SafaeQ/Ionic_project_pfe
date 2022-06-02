@@ -1,7 +1,9 @@
 import React from 'react';
 import { IonButton, IonCardTitle, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonImg, IonPage, IonRouterLink, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
 
-
+import '@ionic/react/css/normalize.css';
+import '@ionic/react/css/structure.css';
+import '@ionic/react/css/typography.css';
 
 
 function LoginAsso() {
@@ -16,9 +18,7 @@ function LoginAsso() {
         <IonContent fullscreen>
             <IonHeader collapse="condense">
                 <IonToolbar>
-                    <div className='center'>
                         <IonTitle size="large">Login</IonTitle>  
-                    </div>
                 </IonToolbar>
             </IonHeader>
             <IonGrid>
