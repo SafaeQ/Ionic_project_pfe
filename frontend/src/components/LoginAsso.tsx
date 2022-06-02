@@ -1,6 +1,6 @@
 import React from 'react';
-import { IonButton, IonCardTitle, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonImg, IonPage, IonRouterLink, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
-
+import { IonButton, IonCardTitle, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonImg, IonPage, IonRouterLink, IonRow, IonItem, IonLabel, IonInput, IonText, } from '@ionic/react';
+import { Action } from './Action';
 
 function LoginAsso() {
   return (
@@ -37,6 +37,11 @@ function LoginAsso() {
                 <IonRow className="justify-content-md-center">
                     <IonCol size="12" className="col-md-12 text-center">
                         <IonButton color='danger' type='submit'> Login </IonButton>
+                    </IonCol>
+                </IonRow>
+                <IonRow className="justify-content-md-center">
+                    <IonCol size="12" className="col-md-12 text-center">
+                        <Action message="If you don't have an account please" text="Sign up" link="/signup" />
                     </IonCol>
                 </IonRow>
             </IonGrid>
