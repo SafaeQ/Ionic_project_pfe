@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonButton, IonCardTitle, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonImg, IonPage, IonRouterLink, IonRow, IonItem, IonLabel, IonInput, IonText, } from '@ionic/react';
+import { IonButton, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
 import { Action } from './utils/Action';
 import { Wave } from './utils/Wave';
 
