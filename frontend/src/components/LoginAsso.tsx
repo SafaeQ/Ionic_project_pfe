@@ -1,6 +1,7 @@
 import React from 'react';
 import { IonButton, IonCardTitle, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonImg, IonPage, IonRouterLink, IonRow, IonItem, IonLabel, IonInput, IonText, } from '@ionic/react';
 import { Action } from './Action';
+import { Wave } from './Wave';
 
 function LoginAsso() {
   return (
@@ -42,6 +43,7 @@ function LoginAsso() {
                 <IonRow className="justify-content-md-center">
                     <IonCol size="12" className="col-md-12 text-center">
                         <Action message="If you don't have an account please" text="Sign up" link="/signup" />
+                        <Wave/>
                     </IonCol>
                 </IonRow>
             </IonGrid>
