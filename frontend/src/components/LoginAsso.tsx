@@ -34,9 +34,9 @@ function LoginAsso() {
                         </IonItem>
                     </IonCol>
                 </IonRow>
-                <IonRow className="ion-margin-top ion-padding-top">
-                    <IonCol size="12">
-                        <IonButton  color='danger' type='submit'> Login </IonButton>
+                <IonRow className="justify-content-md-center">
+                    <IonCol size="12" className="col-md-12 text-center">
+                        <IonButton color='danger' type='submit'> Login </IonButton>
                     </IonCol>
                 </IonRow>
             </IonGrid>
