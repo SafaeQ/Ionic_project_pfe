@@ -1,10 +1,6 @@
 import React from 'react';
 import { IonButton, IonCardTitle, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonImg, IonPage, IonRouterLink, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
 
-import '@ionic/react/css/normalize.css';
-import '@ionic/react/css/structure.css';
-import '@ionic/react/css/typography.css';
-
 
 function LoginAsso() {
   return (
@@ -37,6 +33,9 @@ function LoginAsso() {
                             <IonInput></IonInput>
                         </IonItem>
                     </IonCol>
+                </IonRow>
+                <IonRow>
+                        <IonButton color='danger' type='submit'> Login </IonButton>
                 </IonRow>
             </IonGrid>
         </IonContent>
