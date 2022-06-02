@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonButton, IonCardTitle, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonImg, IonPage, IonRouterLink, IonRow, IonItem, IonLabel, IonInput, IonText, } from '@ionic/react';
-import { Action } from './Action';
-import { Wave } from './Wave';
+import { Action } from './utils/Action';
+import { Wave } from './utils/Wave';
 
 function LoginAsso() {
   return (
@@ -13,7 +13,7 @@ function LoginAsso() {
         </IonHeader>
 
         <IonContent fullscreen>
-            <IonHeader collapse="condense">
+            <IonHeader collapse="condense" >
                 <IonToolbar>
                         <IonTitle size="large">Login</IonTitle>  
                 </IonToolbar>
@@ -40,6 +40,11 @@ function LoginAsso() {
                         <IonButton color='danger' type='submit'> Login </IonButton>
                     </IonCol>
                 </IonRow>
+            </IonGrid>
+        </IonContent>
+
+        <IonFooter>
+            <IonGrid>
                 <IonRow className="justify-content-md-center">
                     <IonCol size="12" className="col-md-12 text-center">
                         <Action message="If you don't have an account please" text="Sign up" link="/signup" />
@@ -47,10 +52,6 @@ function LoginAsso() {
                     </IonCol>
                 </IonRow>
             </IonGrid>
-        </IonContent>
-
-        <IonFooter>
-
         </IonFooter>
     </IonPage>
   );
