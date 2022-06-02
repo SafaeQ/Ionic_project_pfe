@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonButton, IonCardTitle, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonImg, IonPage, IonRouterLink, IonRow, } from '@ionic/react';
+import { IonButton, IonCardTitle, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonImg, IonPage, IonRouterLink, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
 
 
 function LoginAsso() {
@@ -17,6 +17,24 @@ function LoginAsso() {
                     <IonTitle size="large">Login</IonTitle>
                 </IonToolbar>
             </IonHeader>
+            <IonGrid>
+                <IonRow>
+                    <IonCol>
+                        <IonItem>
+                            <IonLabel position='floating'> Your Email</IonLabel>
+                            <IonInput></IonInput>
+                        </IonItem>
+                    </IonCol>
+                </IonRow>
+                <IonRow>
+                    <IonCol>
+                        <IonItem>
+                            <IonLabel position='floating'> Your Password</IonLabel>
+                            <IonInput></IonInput>
+                        </IonItem>
+                    </IonCol>
+                </IonRow>
+            </IonGrid>
         </IonContent>
 
         <IonFooter>
