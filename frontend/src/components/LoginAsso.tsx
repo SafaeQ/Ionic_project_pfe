@@ -18,15 +18,15 @@ function LoginAsso() {
                 </IonToolbar>
             </IonHeader>
             <IonGrid>
-                <IonRow>
-                    <IonCol>
+                <IonRow className="ion-padding">
+                    <IonCol >
                         <IonItem>
                             <IonLabel position='floating'> Your Email</IonLabel>
                             <IonInput></IonInput>
                         </IonItem>
                     </IonCol>
                 </IonRow>
-                <IonRow>
+                <IonRow className="ion-padding">
                     <IonCol>
                         <IonItem>
                             <IonLabel position='floating'> Your Password</IonLabel>
@@ -34,8 +34,10 @@ function LoginAsso() {
                         </IonItem>
                     </IonCol>
                 </IonRow>
-                <IonRow>
-                        <IonButton color='danger' type='submit'> Login </IonButton>
+                <IonRow className="ion-margin-top ion-padding-top">
+                    <IonCol size="12">
+                        <IonButton  color='danger' type='submit'> Login </IonButton>
+                    </IonCol>
                 </IonRow>
             </IonGrid>
         </IonContent>
