@@ -35,8 +35,8 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import LoginAsso from './components/LoginAsso';
-import LoginDonor from './components/LoginDonor';
+import LoginAsso from './components/Auth-Association/LoginAsso';
+import LoginDonor from './components/Auth-Donor/LoginDonor';
 
 setupIonicReact();
 
