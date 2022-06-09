@@ -25,7 +25,7 @@ const SignupAssoc = () => {
                 <IonGrid className="ion-padding">
                     <IonRow>
                         <IonCol size="12" >
-                            <IonCardTitle>Sign up Donor</IonCardTitle>
+                            <IonCardTitle>Signup Association</IonCardTitle>
                         </IonCol>
                     </IonRow>
 

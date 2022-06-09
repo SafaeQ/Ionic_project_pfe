@@ -44,14 +44,10 @@ function LoginDonor() {
         </IonContent>
 
         <IonFooter>
-            <IonGrid>
-                <IonRow className="justify-content-md-center">
-                    <IonCol size="12" className="col-md-12 text-center">
+            <IonGrid className='ion-no-margin ion-no-padding'>
                         <Action message="If you don't have an account please" text="Sign up" link="/signup-donor" />
                         <Action message="Donor" text="Sign in Association" link="/login" />
                         <Wave/>
-                    </IonCol>
-                </IonRow>
             </IonGrid>
         </IonFooter>
     </IonPage>
