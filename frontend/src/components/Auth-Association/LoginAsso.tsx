@@ -51,7 +51,7 @@ function LoginAsso() {
             password:password,
         }
 
-        api.post('/register-association',obj)
+        api.post('/login',obj)
         .then((res) => {
             console.log(res.data)
             // navigate('/login')
