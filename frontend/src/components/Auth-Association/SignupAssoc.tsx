@@ -79,20 +79,26 @@ const SignupAssoc = () => {
                             </IonItem>
                         </IonCol>
                     </IonRow>
+                    <IonRow className="ion-no-margin ">
+                        <IonCol >
+                            <IonItem>
+                                <IonLabel position='floating'>Description </IonLabel>
+                                <IonInput type='text'></IonInput>
+                            </IonItem>
+                        </IonCol>
+                    </IonRow>
                     <IonRow className="ion-padding">
                         <IonCol size="12" className="col-md-12 text-center">
                             <IonButton color='danger' type='submit'> SignUp </IonButton>
                         </IonCol>
                     </IonRow>
                 </IonGrid>
-			</IonContent>
-
-			<IonFooter>
-				<IonGrid className="ion-no-margin ion-no-padding">
+                <IonGrid className="ion-no-margin ion-no-padding">
                     <Action message="Already got an account?" text="Login" link="/login" />
                     <Wave />
 				</IonGrid>
-			</IonFooter>
+			</IonContent>
+
 		</IonPage>
 	);
 };
