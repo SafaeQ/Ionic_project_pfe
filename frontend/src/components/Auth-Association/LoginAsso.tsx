@@ -22,6 +22,13 @@ function LoginAsso() {
 
 
     const handleSubmit = () => {
+
+        let obj = {
+            email:email,
+            password:password,
+        }
+
+        api.post('/register-association',obj )
         if (email === "" || password === "") {
             setMessage("Fill in all fields");
         } else if (!validateEmail(email)) {
