@@ -38,7 +38,7 @@ app.use('/api', projectRouter, articleRouter, categoryRouter)
 
 // app.use('/api', articleRouter)
 
-app.use('/auth', userAuth_router)
+app.use('/', userAuth_router)
 
 
 // running my server
