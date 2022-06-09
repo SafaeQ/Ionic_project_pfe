@@ -71,11 +71,7 @@ const SignupAssoc = () => {
                             </IonItem>
                         </IonCol>
                     </IonRow>
-                    <IonRow className="ion-no-margin ">
-                        <IonCol>
-                                <input type='file' accept="image/*"  name='image'/>
-                        </IonCol>
-                    </IonRow>
+                    
                     <IonRow className="ion-no-margin ">
                         <IonCol >
                             <IonItem>
@@ -84,6 +80,13 @@ const SignupAssoc = () => {
                             </IonItem>
                         </IonCol>
                     </IonRow>
+
+                    <IonRow className="ion-padding ">
+                        <IonCol>
+                                <input type='file' accept="image/*"  name='image'/>
+                        </IonCol>
+                    </IonRow>
+
                     <IonRow className="ion-padding">
                         <IonCol size="12" className="col-md-12 text-center">
                             <IonButton color='danger' type='submit'> SignUp </IonButton>
@@ -95,7 +98,6 @@ const SignupAssoc = () => {
                     <Wave />
 				</IonGrid>
 			</IonContent>
-
 		</IonPage>
 	);
 };
