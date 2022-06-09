@@ -1,4 +1,4 @@
-import { IonBackButton, IonButton, IonButtons, IonCardTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonPage, IonRouterLink, IonRow, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCardTitle, IonCol, IonContent, IonFooter,IonItem, IonLabel, IonInput, IonGrid, IonHeader, IonIcon, IonPage, IonRouterLink, IonRow, IonToolbar } from '@ionic/react';
 // import styles from './Signup.module.scss';
 
 import { arrowBack, shapesOutline } from "ionicons/icons";
@@ -32,10 +32,33 @@ const SignupDonor = () => {
                         </IonCol>
                     </IonRow>
 
-                    <IonRow className="ion-margin-top ion-padding-top">
-                        <IonCol size="12">
-
-                            <IonButton className="custom-button" expand="block">Create account</IonButton>
+                    <IonRow className="ion-padding">
+                        <IonCol >
+                            <IonItem>
+                                <IonLabel position='floating'> Full Name</IonLabel>
+                                <IonInput type='text'></IonInput>
+                            </IonItem>
+                        </IonCol>
+                    </IonRow>
+                    <IonRow className="ion-padding">
+                        <IonCol >
+                            <IonItem>
+                                <IonLabel position='floating'> Your Email</IonLabel>
+                                <IonInput type='email'></IonInput>
+                            </IonItem>
+                        </IonCol>
+                    </IonRow>
+                    <IonRow className="ion-padding">
+                        <IonCol>
+                            <IonItem>
+                                <IonLabel position='floating'> Your Password</IonLabel>
+                                <IonInput type='password'></IonInput>
+                            </IonItem>
+                        </IonCol>
+                    </IonRow>
+                    <IonRow className="justify-content-md-center">
+                        <IonCol size="12" className="col-md-12 text-center">
+                            <IonButton color='danger' type='submit'> SignUp </IonButton>
                         </IonCol>
                     </IonRow>
                 </IonGrid>
@@ -43,8 +66,7 @@ const SignupDonor = () => {
 
 			<IonFooter>
 				<IonGrid className="ion-no-margin ion-no-padding">
-
-                    <Action message="Already got an account?" text="Login" link="/login" />
+                    <Action message="Already got an account?" text="Login" link="/login-donor" />
                     <Wave />
 				</IonGrid>
 			</IonFooter>
