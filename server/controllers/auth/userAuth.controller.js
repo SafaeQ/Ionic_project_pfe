@@ -77,8 +77,8 @@ const donor_signup = async (req, res) => {
 const login = async (req, res) =>{
     try {
         const { email, password } = req.body
-        console.log(req.body.email)
-        const user = await Association.findOne({ });
+        
+        const user = await Association.findOne({});
         
         if (!user) return res.status(400).send(`Email Incorrect / Not Found! Please Register First.`);
         
@@ -88,7 +88,7 @@ const login = async (req, res) =>{
         
         const token = jwt.sign({ _id: user._id, role: user.role }, 'secret');
         
-        res.status(200).json({ status: 'success', token });
+        res.status(200).send({ status: 'success', token });
 
     } catch (error) {
         
