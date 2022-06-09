@@ -1,5 +1,5 @@
 import { IonBackButton, IonButton, IonButtons, IonCardTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonPage, IonRouterLink, IonRow, IonToolbar } from '@ionic/react';
-import styles from './Signup.module.scss';
+// import styles from './Signup.module.scss';
 
 import { arrowBack, shapesOutline } from "ionicons/icons";
 import { Action } from '../utils/Action';
@@ -8,7 +8,7 @@ import { Wave } from '../utils/Wave';
 const SignupDonor = () => {
 
 	return (
-		<IonPage className={ styles.signupPage }>
+		<IonPage>
 			<IonHeader>
 				<IonToolbar>
 					
@@ -26,7 +26,7 @@ const SignupDonor = () => {
 			<IonContent fullscreen>
                 <IonGrid className="ion-padding">
                     <IonRow>
-                        <IonCol size="12" className={ styles.headingText }>
+                        <IonCol size="12" >
                             <IonCardTitle>Sign up Donor</IonCardTitle>
                             {/* <h5>Lets get to know each other</h5> */}
                         </IonCol>
