@@ -36,18 +36,24 @@ const SignupAssoc = () => {
                                 <IonInput type='text'></IonInput>
                             </IonItem>
                         </IonCol>
-                    </IonRow>
-                    <IonRow className="ion-no-margin ">
                         <IonCol >
                             <IonItem>
                                 <IonLabel position='floating'> Your Email</IonLabel>
                                 <IonInput type='email'></IonInput>
                             </IonItem>
                         </IonCol>
+                    </IonRow>
+                    <IonRow className="ion-no-margin ">
                         <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Your Password</IonLabel>
                                 <IonInput type='password'></IonInput>
+                            </IonItem>
+                        </IonCol>
+                        <IonCol>
+                            <IonItem>
+                                <IonLabel position='floating'> Members</IonLabel>
+                                <IonInput type='number'></IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>
@@ -55,7 +61,7 @@ const SignupAssoc = () => {
                         <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Phone Number</IonLabel>
-                                <IonInput type='number'></IonInput>
+                                <IonInput type='tel'></IonInput>
                             </IonItem>
                         </IonCol>
                         <IonCol>
@@ -67,16 +73,7 @@ const SignupAssoc = () => {
                     </IonRow>
                     <IonRow className="ion-no-margin ">
                         <IonCol>
-                            <IonItem>
-                                <IonLabel position='floating'> Members</IonLabel>
-                                <IonInput type='number'></IonInput>
-                            </IonItem>
-                        </IonCol>
-                        <IonCol>
-                            <IonItem>
-                                <IonLabel position='floating'> Description </IonLabel>
-                                <IonInput type='text'></IonInput>
-                            </IonItem>
+                                <input type='file' accept="image/*"  name='image'/>
                         </IonCol>
                     </IonRow>
                     <IonRow className="ion-no-margin ">
