@@ -3,6 +3,9 @@ import { IonButton, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid
 import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
 
+import api from '../../services/api';
+
+
 function LoginAsso() {
 
     const [email, setEmail] = useState('');
