@@ -44,12 +44,38 @@ const SignupAssoc = () => {
                                 <IonInput type='email'></IonInput>
                             </IonItem>
                         </IonCol>
-                    </IonRow>
-                    <IonRow className="ion-no-margin ">
                         <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Your Password</IonLabel>
                                 <IonInput type='password'></IonInput>
+                            </IonItem>
+                        </IonCol>
+                    </IonRow>
+                    <IonRow className="ion-no-margin ">
+                        <IonCol>
+                            <IonItem>
+                                <IonLabel position='floating'> Phone Number</IonLabel>
+                                <IonInput type='number'></IonInput>
+                            </IonItem>
+                        </IonCol>
+                        <IonCol>
+                            <IonItem>
+                                <IonLabel position='floating'> Adress </IonLabel>
+                                <IonInput type='text'></IonInput>
+                            </IonItem>
+                        </IonCol>
+                    </IonRow>
+                    <IonRow className="ion-no-margin ">
+                        <IonCol>
+                            <IonItem>
+                                <IonLabel position='floating'> Members</IonLabel>
+                                <IonInput type='number'></IonInput>
+                            </IonItem>
+                        </IonCol>
+                        <IonCol>
+                            <IonItem>
+                                <IonLabel position='floating'> Description </IonLabel>
+                                <IonInput type='text'></IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>
