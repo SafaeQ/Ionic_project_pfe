@@ -37,6 +37,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import LoginAsso from './components/Auth-Association/LoginAsso';
 import LoginDonor from './components/Auth-Donor/LoginDonor';
+import SignupDonor from './components/Auth-Donor/SignupDonor';
 
 setupIonicReact();
 
@@ -52,6 +53,10 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/login">
             <LoginAsso />
+          </Route>
+          
+          <Route exact path="/signup-donor">
+            <SignupDonor />
           </Route>
 
           <Route exact path="/login-donor">

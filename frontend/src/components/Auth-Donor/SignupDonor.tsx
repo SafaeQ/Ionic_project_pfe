@@ -5,7 +5,7 @@ import { arrowBack, shapesOutline } from "ionicons/icons";
 import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
 
-const Signup = () => {
+const SignupDonor = () => {
 
 	return (
 		<IonPage className={ styles.signupPage }>
@@ -28,7 +28,7 @@ const Signup = () => {
                     <IonRow>
                         <IonCol size="12" className={ styles.headingText }>
                             <IonCardTitle>Sign up Donor</IonCardTitle>
-                            <h5>Lets get to know each other</h5>
+                            {/* <h5>Lets get to know each other</h5> */}
                         </IonCol>
                     </IonRow>
 
@@ -52,4 +52,4 @@ const Signup = () => {
 	);
 };
 
-export default Signup;
+export default SignupDonor;
