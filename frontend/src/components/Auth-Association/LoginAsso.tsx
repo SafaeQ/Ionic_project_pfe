@@ -44,14 +44,10 @@ function LoginAsso() {
         </IonContent>
 
         <IonFooter>
-            <IonGrid>
-                <IonRow className="justify-content-md-center">
-                    <IonCol size="12" className="col-md-12 text-center">
-                        <Action message="If you don't have an account please" text="Sign up" link="/signup" />
-                        <Action message="Donor" text="Login Donor" link="/login-donor" />
-                        <Wave/>
-                    </IonCol>
-                </IonRow>
+            <IonGrid className='ion-no-margin ion-no-padding'>
+                    <Action message="If you don't have an account please" text="Sign up" link="/signup" />
+                    <Action message="Donor" text="Login Donor" link="/login-donor" />
+                    <Wave/>
             </IonGrid>
         </IonFooter>
     </IonPage>
