@@ -28,7 +28,6 @@ const SignupDonor = () => {
                     <IonRow>
                         <IonCol size="12" >
                             <IonCardTitle>Sign up Donor</IonCardTitle>
-                            {/* <h5>Lets get to know each other</h5> */}
                         </IonCol>
                     </IonRow>
 
