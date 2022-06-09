@@ -1,5 +1,4 @@
 import { IonBackButton, IonButton, IonButtons, IonCardTitle, IonCol, IonContent, IonFooter,IonItem, IonLabel, IonInput, IonGrid, IonHeader, IonIcon, IonPage, IonRouterLink, IonRow, IonToolbar } from '@ionic/react';
-// import styles from './Signup.module.scss';
 
 import { arrowBack, shapesOutline } from "ionicons/icons";
 import { Action } from '../utils/Action';
