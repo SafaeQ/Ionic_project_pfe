@@ -29,7 +29,7 @@ const SignupDonor = () => {
                         </IonCol>
                     </IonRow>
 
-                    <IonRow className="ion-padding">
+                    <IonRow className="ion-no-margin ">
                         <IonCol >
                             <IonItem>
                                 <IonLabel position='floating'> Full Name</IonLabel>
@@ -37,7 +37,7 @@ const SignupDonor = () => {
                             </IonItem>
                         </IonCol>
                     </IonRow>
-                    <IonRow className="ion-padding">
+                    <IonRow className="ion-no-margin ">
                         <IonCol >
                             <IonItem>
                                 <IonLabel position='floating'> Your Email</IonLabel>
@@ -45,7 +45,7 @@ const SignupDonor = () => {
                             </IonItem>
                         </IonCol>
                     </IonRow>
-                    <IonRow className="ion-padding">
+                    <IonRow className="ion-no-margin ">
                         <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Your Password</IonLabel>
@@ -53,7 +53,7 @@ const SignupDonor = () => {
                             </IonItem>
                         </IonCol>
                     </IonRow>
-                    <IonRow className="justify-content-md-center">
+                    <IonRow className="ion-padding">
                         <IonCol size="12" className="col-md-12 text-center">
                             <IonButton color='danger' type='submit'> SignUp </IonButton>
                         </IonCol>
