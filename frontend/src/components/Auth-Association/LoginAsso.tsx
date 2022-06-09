@@ -64,7 +64,7 @@ return (
                     <IonCol>
                         <IonItem>
                             <IonLabel position='floating'> Your Password</IonLabel>
-                            <IonInput name="passowrd" type='password'></IonInput>
+                            <IonInput name="passowrd" type='password' ></IonInput>
                         </IonItem>
                     </IonCol>
                 </IonRow>
