@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { IonButton, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
 import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
 
 function LoginAsso() {
 
-  return (
+    const initialState = {email: '', password: ''};
+
+    const [state, setstate] = useState(initialState);
+
+    
+
+return (
     <IonPage>
         <IonHeader>
             <IonToolbar>
