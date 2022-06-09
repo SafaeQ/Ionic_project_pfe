@@ -25,26 +25,41 @@ function LoginAsso() {
 
 
     const handleSubmit = () => {
-
-        let obj = {
-            email:email,
-            password:password,
-        }
-
-        api.post('/register-association',obj )
+        console.log('ckiled');
+        
+        // validation
         if (email === "" || password === "") {
             setMessage("Fill in all fields");
+
         } else if (!validateEmail(email)) {
             setMessage("Only valid email addresses are accepted");
+
         } else if (password.length <= 10) {
             setMessage("Password should have more than 10 characters");
+
         } else if (!validatePassword(password)) {
             setMessage("Password should include numbers");
+
         } else {
             setMessage("");
             setPassword("");
             setEmail("");
         }
+        
+        let obj = {
+            email:email,
+            password:password,
+        }
+
+        api.post('/register-association',obj)
+        .then((res) => {
+            console.log(res.data)
+            // navigate('/login')
+        }).catch((error) => {
+            console.log(error)
+            // navigate('/')
+        });
+        
     };
 
 return (
