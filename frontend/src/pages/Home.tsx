@@ -6,7 +6,7 @@ const Home: React.FC = () => {
   return (
     <IonPage>
         <IonHeader>
-					<IonImg src="../assets/images/media.png"/>
+					
 		</IonHeader>
         
 		<IonContent fullscreen>
