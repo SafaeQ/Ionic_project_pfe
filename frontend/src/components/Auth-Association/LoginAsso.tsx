@@ -31,57 +31,37 @@ function LoginAsso() {
         console.log('clicked');
 
         try {
-            const response = await api.post('/login'
-            );
-            console.log(JSON.stringify(response?.data));
-            history.push("/signup");
-            const accessToken = response?.data?.accessToken;
-            setEmail('');
-            setPassword('');
+            
+            const loginData = {
+                "email": email,
+                "password": password
+            }
+            
+            const res = await api.post("/login", loginData)
+                .then(res => {             
+                    history.push("/home");
+                })
         } catch (error) {
+            if (!email) {
+                setMessage("Please enter a valid email");
+                setIserror(true);
+                return;
+            }
+
+            if (validateEmail(email) === false) {
+                setMessage("Your email is invalid");
+                setIserror(true);
+                return;
+            }
+            
+            if (!password || password.length < 6) {
+                setMessage("Please enter your password");
+                setIserror(true);
+                return;
+            }
             setMessage("Auth failure! Please create an account");
             setIserror(true)
         }
-        
-
-
-
-
-
-
-
-    
-    //     if (!email) {
-    //         setMessage("Please enter a valid email");
-    //         setIserror(true);
-    //         return;
-    //     }
-
-    //     if (validateEmail(email) === false) {
-    //         setMessage("Your email is invalid");
-    //         setIserror(true);
-    //         return;
-    //     }
-        
-    //     if (!password || password.length < 6) {
-    //         setMessage("Please enter your password");
-    //         setIserror(true);
-    //         return;
-    //     }
-        
-    //     const loginData = {
-    //         "email": email,
-    //         "password": password
-    //     }
-        
-    //     api.post("/login", loginData)
-    //         .then(res => {             
-    //             history.push("/signup");
-    //         })
-    //         .catch(error=>{
-    //             setMessage("Auth failure! Please create an account");
-    //             setIserror(true)
-    //         })
     };
 
 return (
