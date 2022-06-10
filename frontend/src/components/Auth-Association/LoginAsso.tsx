@@ -36,8 +36,7 @@ function LoginAsso() {
                 "email": email,
                 "password": password
             }
-            
-            const res = await api.post("/login", loginData)
+            api.post("/login", loginData)
                 .then(res => {             
                     history.push("/home");
                 })
