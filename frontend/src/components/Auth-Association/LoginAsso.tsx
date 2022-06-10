@@ -32,6 +32,7 @@ function LoginAsso() {
             setIserror(true);
             return;
         }
+
         if (validateEmail(email) === false) {
             setMessage("Your email is invalid");
             setIserror(true);
@@ -43,7 +44,7 @@ function LoginAsso() {
             setIserror(true);
             return;
         }
-    
+        
         const loginData = {
             "email": email,
             "password": password
