@@ -67,8 +67,8 @@ return (
             </IonToolbar>
         </IonHeader>
 
-        <IonContent fullscreen>
-            <form noValidate onSubmit={handleLogin}>
+        <IonContent fullscreen onSubmit={handleLogin}>
+            <form noValidate >
             <IonHeader collapse="condense" >
                 <IonToolbar>
                         <IonTitle size="large">Association Login</IonTitle>  
