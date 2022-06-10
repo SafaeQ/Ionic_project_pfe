@@ -31,7 +31,7 @@ function LoginAsso() {
         console.log('clicked');
 
         try {
-            const response = await axios.post('http://127.0.0.1:9900/login',
+            const response = await api.post('/login',
                 JSON.stringify({ email, password }),
                 {
                     headers: { 'Content-Type': 'application/json' },
@@ -39,11 +39,13 @@ function LoginAsso() {
                 }
             );
             console.log(JSON.stringify(response?.data));
+            history.push("/signup");
             const accessToken = response?.data?.accessToken;
-
-            
+            setEmail('');
+            setPassword('');
         } catch (error) {
-            
+            setMessage("Auth failure! Please create an account");
+            setIserror(true)
         }
         
 
