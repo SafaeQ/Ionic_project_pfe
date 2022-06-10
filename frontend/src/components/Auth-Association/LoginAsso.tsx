@@ -31,12 +31,7 @@ function LoginAsso() {
         console.log('clicked');
 
         try {
-            const response = await api.post('/login',
-                JSON.stringify({ email, password }),
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
-                }
+            const response = await api.post('/login'
             );
             console.log(JSON.stringify(response?.data));
             history.push("/signup");
