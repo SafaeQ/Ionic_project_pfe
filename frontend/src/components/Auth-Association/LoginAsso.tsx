@@ -67,8 +67,8 @@ return (
             </IonToolbar>
         </IonHeader>
 
-        <IonContent fullscreen onSubmit={handleLogin}>
-            <form noValidate >
+        <IonContent fullscreen>
+            
             <IonHeader collapse="condense" >
                 <IonToolbar>
                         <IonTitle size="large">Association Login</IonTitle>  
@@ -106,11 +106,11 @@ return (
                 </IonRow>
                 <IonRow className="justify-content-md-center">
                     <IonCol size="12" className="col-md-12 text-center">
-                        <IonButton color='danger' type='submit'> Login </IonButton>
+                        <IonButton color='danger' type='submit' onClick={handleLogin}> Login </IonButton>
                     </IonCol>
                 </IonRow>
             </IonGrid>
-            </form>
+        
         </IonContent>
 
         <IonFooter>
