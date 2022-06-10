@@ -26,19 +26,8 @@ function LoginDonor() {
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('clicked');
 
         try {
-            const loginData = {
-                "email": email,
-                "password": password
-            }
-            api.post("/login-donor", loginData)
-                .then(res => {    
-                    console.log(res.data)
-                    history.push("/home");
-                })
-        } catch (error) {
             if (!email) {
                 setMessage("Please enter a valid email");
                 setIserror(true);
@@ -55,6 +44,17 @@ function LoginDonor() {
                 setIserror(true);
                 return;
             }
+            
+            const loginData = {
+                "email": email,
+                "password": password
+            }
+            api.post("/login-donor", loginData)
+                .then(res => {    
+                    console.log(res.data)
+                    history.push("/home");
+                })
+        } catch (error) {
             setMessage("Auth failure! Please create an account");
             setIserror(true)
         }
