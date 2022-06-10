@@ -31,13 +31,13 @@ function LoginAsso() {
         console.log('clicked');
 
         try {
-            
             const loginData = {
                 "email": email,
                 "password": password
             }
             api.post("/login", loginData)
-                .then(res => {             
+                .then(res => {    
+                    console.log(res.data)
                     history.push("/home");
                 })
         } catch (error) {
