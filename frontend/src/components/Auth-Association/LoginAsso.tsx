@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router';
-import { personCircle } from "ionicons/icons"
 import { IonButton, IonToolbar, IonTitle, IonAlert, IonIcon, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
 import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
@@ -38,8 +37,8 @@ function LoginAsso() {
             setIserror(true);
             return;
         }
-    
-        if (!password || password.length < 6) {
+        
+        if (!password || password.length < 10) {
             setMessage("Please enter your password");
             setIserror(true);
             return;
@@ -52,13 +51,13 @@ function LoginAsso() {
     
         api.post("/login", loginData)
             .then(res => {             
-                history.push("/signup" + email);
-             })
-             .catch(error=>{
+                history.push("/signup");
+            })
+            .catch(error=>{
                 setMessage("Auth failure! Please create an account");
                 setIserror(true)
-             })
-      };
+            })
+    };
 
 return (
     <IonPage>
@@ -85,14 +84,6 @@ return (
                         header={"Error!"}
                         message={message}
                         buttons={["Dismiss"]}
-                    />
-                </IonCol>
-                </IonRow>
-                <IonRow>
-                <IonCol>
-                    <IonIcon
-                        style={{ fontSize: "70px", color: "#0040ff" }}
-                        icon={personCircle}
                     />
                 </IonCol>
                 </IonRow>
