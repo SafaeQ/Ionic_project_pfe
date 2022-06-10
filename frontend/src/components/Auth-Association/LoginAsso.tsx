@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import { IonButton, IonToolbar, IonTitle, IonAlert, IonIcon, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
 import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
+import axios from 'axios'
 
 import api from '../../services/api';
 
@@ -25,39 +26,65 @@ function LoginAsso() {
         return re.test(password);
     };
 
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log('clicked');
 
-    const handleLogin = () => {
-        if (!email) {
-            setMessage("Please enter a valid email");
-            setIserror(true);
-            return;
-        }
+        try {
+            const response = await axios.post('http://127.0.0.1:9900/login',
+                JSON.stringify({ email, password }),
+                {
+                    headers: { 'Content-Type': 'application/json' },
+                    withCredentials: true
+                }
+            );
+            console.log(JSON.stringify(response?.data));
+            const accessToken = response?.data?.accessToken;
 
-        if (validateEmail(email) === false) {
-            setMessage("Your email is invalid");
-            setIserror(true);
-            return;
+            
+        } catch (error) {
+            
         }
         
-        if (!password || password.length < 6) {
-            setMessage("Please enter your password");
-            setIserror(true);
-            return;
-        }
-        
-        const loginData = {
-            "email": email,
-            "password": password
-        }
+
+
+
+
+
+
+
     
-        api.post("/login", loginData)
-            .then(res => {             
-                history.push("/signup");
-            })
-            .catch(error=>{
-                setMessage("Auth failure! Please create an account");
-                setIserror(true)
-            })
+    //     if (!email) {
+    //         setMessage("Please enter a valid email");
+    //         setIserror(true);
+    //         return;
+    //     }
+
+    //     if (validateEmail(email) === false) {
+    //         setMessage("Your email is invalid");
+    //         setIserror(true);
+    //         return;
+    //     }
+        
+    //     if (!password || password.length < 6) {
+    //         setMessage("Please enter your password");
+    //         setIserror(true);
+    //         return;
+    //     }
+        
+    //     const loginData = {
+    //         "email": email,
+    //         "password": password
+    //     }
+        
+    //     api.post("/login", loginData)
+    //         .then(res => {             
+    //             history.push("/signup");
+    //         })
+    //         .catch(error=>{
+    //             setMessage("Auth failure! Please create an account");
+    //             setIserror(true)
+    //         })
     };
 
 return (
