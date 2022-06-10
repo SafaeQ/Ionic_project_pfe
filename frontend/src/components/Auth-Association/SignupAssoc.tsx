@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import { IonBackButton, IonButton, IonButtons, IonCardTitle, IonCol, IonContent, IonFooter,IonItem, IonLabel, IonInput, IonGrid, IonHeader, IonIcon, IonPage, IonRouterLink, IonRow, IonToolbar } from '@ionic/react';
 
 import { arrowBack, shapesOutline } from "ionicons/icons";
@@ -5,6 +6,12 @@ import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
 
 const SignupAssoc = () => {
+    const [fullName, setFullName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');
+    
+
 
 	return (
 		<IonPage>
