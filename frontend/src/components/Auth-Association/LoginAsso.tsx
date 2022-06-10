@@ -38,7 +38,7 @@ function LoginAsso() {
             return;
         }
         
-        if (!password || password.length < 10) {
+        if (!password || password.length < 6) {
             setMessage("Please enter your password");
             setIserror(true);
             return;
