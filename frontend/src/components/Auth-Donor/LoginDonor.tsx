@@ -33,7 +33,7 @@ function LoginDonor() {
                 "email": email,
                 "password": password
             }
-            api.post("/login", loginData)
+            api.post("/login-donor", loginData)
                 .then(res => {    
                     console.log(res.data)
                     history.push("/home");
@@ -44,7 +44,6 @@ function LoginDonor() {
                 setIserror(true);
                 return;
             }
-
             if (validateEmail(email) === false) {
                 setMessage("Your email is invalid");
                 setIserror(true);
@@ -92,7 +91,7 @@ function LoginDonor() {
                     <IonCol >
                         <IonItem>
                             <IonLabel position='floating'> Your Email</IonLabel>
-                            <IonInput type='email'></IonInput>
+                            <IonInput type='email' value={email} onIonChange={(e) => setEmail(e.detail.value!)}></IonInput>
                         </IonItem>
                     </IonCol>
                 </IonRow>
@@ -100,13 +99,13 @@ function LoginDonor() {
                     <IonCol>
                         <IonItem>
                             <IonLabel position='floating'> Your Password</IonLabel>
-                            <IonInput type='password'></IonInput>
+                            <IonInput type='password' value={password} onIonChange={(e) => setPassword(e.detail.value!)}></IonInput>
                         </IonItem>
                     </IonCol>
                 </IonRow>
                 <IonRow className="justify-content-md-center">
                     <IonCol size="12" className="col-md-12 text-center">
-                        <IonButton color='danger' type='submit'> Login </IonButton>
+                        <IonButton color='danger' type='submit'  onClick={handleLogin}> Login </IonButton>
                     </IonCol>
                 </IonRow>
             </IonGrid>
