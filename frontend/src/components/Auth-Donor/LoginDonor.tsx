@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router';
-import { IonButton, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
+import { IonButton, IonToolbar, IonTitle,IonAlert, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
 import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
 
@@ -76,6 +76,18 @@ function LoginDonor() {
                 </IonToolbar>
             </IonHeader>
             <IonGrid>
+                <IonRow>
+                    <IonCol>
+                        <IonAlert
+                            isOpen={iserror}
+                            onDidDismiss={() => setIserror(false)}
+                            cssClass="my-custom-class"
+                            header={"Error!"}
+                            message={message}
+                            buttons={["Dismiss"]}
+                        />
+                    </IonCol>
+                </IonRow>
                 <IonRow className="ion-padding">
                     <IonCol >
                         <IonItem>

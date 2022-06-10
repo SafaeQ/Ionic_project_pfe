@@ -79,17 +79,17 @@ return (
             </IonHeader>
 
             <IonGrid>
-                    <IonRow>
-                <IonCol>
-                    <IonAlert
-                        isOpen={iserror}
-                        onDidDismiss={() => setIserror(false)}
-                        cssClass="my-custom-class"
-                        header={"Error!"}
-                        message={message}
-                        buttons={["Dismiss"]}
-                    />
-                </IonCol>
+                <IonRow>
+                    <IonCol>
+                        <IonAlert
+                            isOpen={iserror}
+                            onDidDismiss={() => setIserror(false)}
+                            cssClass="my-custom-class"
+                            header={"Error!"}
+                            message={message}
+                            buttons={["Dismiss"]}
+                        />
+                    </IonCol>
                 </IonRow>
                 <IonRow className="ion-padding">
                     <IonCol >
