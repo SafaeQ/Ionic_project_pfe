@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-// import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router';
 import { IonButton, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
 import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
@@ -8,6 +8,7 @@ import api from '../../services/api';
 
 
 function LoginAsso() {
+    let history = useHistory()
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -55,10 +56,10 @@ function LoginAsso() {
         api.post('/login',obj)
         .then((res) => {
             console.log(res.data)
-            // navigate('/login')
+            history.push('/signup')
         }).catch((error) => {
             console.log(error)
-            // navigate('/')
+            history.push('/login')
         });
         
     };
