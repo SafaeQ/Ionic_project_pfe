@@ -1,12 +1,23 @@
 import React from 'react';
 
-import { IonButton, IonCardTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonImg, IonPage, IonRouterLink, IonRow, } from '@ionic/react';
+import { IonButton, IonCardTitle,IonToolbar,IonButtons, IonBackButton,IonIcon, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonImg, IonPage, IonRouterLink, IonRow, } from '@ionic/react';
+import { arrowBack, shapesOutline } from "ionicons/icons";
+
 
 const Home: React.FC = () => {
-  return (
+return (
     <IonPage>
         <IonHeader>
-					
+			<IonToolbar>
+                <IonButtons slot="start">
+                    <IonBackButton icon={ arrowBack } text="" className="custom-back" />
+                </IonButtons>
+                <IonButtons slot="end">
+                    <IonButton className="custom-button">
+                        <IonIcon icon={ shapesOutline } />
+                    </IonButton>
+                </IonButtons>
+			</IonToolbar>
 		</IonHeader>
         
 		<IonContent fullscreen>

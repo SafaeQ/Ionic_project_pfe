@@ -10,7 +10,6 @@ const SignupAssoc = () => {
 		<IonPage>
 			<IonHeader>
 				<IonToolbar>
-					
                     <IonButtons slot="start">
                         <IonBackButton icon={ arrowBack } text="" className="custom-back" />
                     </IonButtons>
