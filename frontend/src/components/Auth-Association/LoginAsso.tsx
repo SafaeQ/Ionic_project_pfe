@@ -3,7 +3,6 @@ import { useHistory } from 'react-router';
 import { IonButton, IonToolbar, IonTitle, IonAlert, IonIcon, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
 import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
-import axios from 'axios'
 
 import api from '../../services/api';
 

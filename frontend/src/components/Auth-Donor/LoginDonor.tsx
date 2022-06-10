@@ -1,10 +1,67 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useHistory } from 'react-router';
 import { IonButton, IonToolbar, IonTitle, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
 import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
 
+import api from '../../services/api';
+
 function LoginDonor() {
-  return (
+    let history = useHistory()
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+    const [iserror, setIserror] = useState<boolean>(false);
+
+    const validateEmail = (email: string) => {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    };
+    
+    const validatePassword = (password: string) => {
+        let re = /[0-9]+/;
+        return re.test(password);
+    };
+
+    const handleLogin = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log('clicked');
+
+        try {
+            const loginData = {
+                "email": email,
+                "password": password
+            }
+            api.post("/login", loginData)
+                .then(res => {    
+                    console.log(res.data)
+                    history.push("/home");
+                })
+        } catch (error) {
+            if (!email) {
+                setMessage("Please enter a valid email");
+                setIserror(true);
+                return;
+            }
+
+            if (validateEmail(email) === false) {
+                setMessage("Your email is invalid");
+                setIserror(true);
+                return;
+            }
+            
+            if (!password || password.length < 6) {
+                setMessage("Please enter your password");
+                setIserror(true);
+                return;
+            }
+            setMessage("Auth failure! Please create an account");
+            setIserror(true)
+        }
+    };
+
+    return (
     <IonPage>
         <IonHeader>
             <IonToolbar>
@@ -51,7 +108,7 @@ function LoginDonor() {
             </IonGrid>
         </IonFooter>
     </IonPage>
-  );
+    );
 }
 
 export default LoginDonor;
