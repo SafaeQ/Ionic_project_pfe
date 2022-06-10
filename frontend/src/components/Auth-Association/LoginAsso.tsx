@@ -26,7 +26,7 @@ function LoginAsso() {
         return re.test(password);
     };
 
-    const handleLogin = async (e: React.FormEvent) => {
+    const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
         console.log('clicked');
 
