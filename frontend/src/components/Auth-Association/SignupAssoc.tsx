@@ -61,10 +61,11 @@ const SignupAssoc = () => {
             }
             api.post("/register-association", data)
                 .then(res => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     history.push("/home");
                 })
-
+                console.log();
+                
         } catch (error) {
             console.log(error);
             history.push("/signup");
@@ -144,7 +145,7 @@ const SignupAssoc = () => {
                     </IonRow>
                     <IonRow className="ion-padding ">
                         <IonCol>
-                                <input type='file' accept="image/*"  name='image' onChange={handleChangeInput}/>
+                                <input type='file' accept="image/*"  name='image'/>
                         </IonCol>
                     </IonRow>
                     <IonRow className="ion-padding">
