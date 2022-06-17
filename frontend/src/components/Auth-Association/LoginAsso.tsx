@@ -65,12 +65,6 @@ function LoginAsso() {
 
 return (
     <IonPage>
-        <IonHeader>
-            <IonToolbar>
-                <IonTitle>Association Login </IonTitle>
-            </IonToolbar>
-        </IonHeader>
-
         <IonContent fullscreen>
             
             <IonHeader collapse="condense" >
