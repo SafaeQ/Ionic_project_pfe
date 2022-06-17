@@ -10,7 +10,6 @@ const SignupDonor = () => {
 		<IonPage>
 			<IonHeader>
 				<IonToolbar>
-					
                     <IonButtons slot="start">
                         <IonBackButton icon={ arrowBack } text="" className="custom-back" />
                     </IonButtons>
@@ -28,7 +27,6 @@ const SignupDonor = () => {
                             <IonCardTitle>Sign up Donor</IonCardTitle>
                         </IonCol>
                     </IonRow>
-
                     <IonRow className="ion-no-margin ">
                         <IonCol >
                             <IonItem>
@@ -60,7 +58,6 @@ const SignupDonor = () => {
                     </IonRow>
                 </IonGrid>
 			</IonContent>
-
 			<IonFooter>
 				<IonGrid className="ion-no-margin ion-no-padding">
                     <Action message="Already got an account?" text="Login" link="/login-donor" />
