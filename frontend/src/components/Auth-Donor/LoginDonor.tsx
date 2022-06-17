@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router';
-import { IonButton, IonToolbar, IonTitle,IonAlert, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
+import { IonButton, IonToolbar, IonTitle,IonAlert, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, IonBackButton, IonButtons, IonIcon, } from '@ionic/react';
+import { arrowBack, shapesOutline } from "ionicons/icons";
 import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
 
 import api from '../../services/api';
+
 
 function LoginDonor() {
     let history = useHistory()
@@ -64,10 +66,17 @@ function LoginDonor() {
     <IonPage>
         <IonHeader>
             <IonToolbar>
+                <IonButtons slot="start">
+                    <IonBackButton icon={ arrowBack } text="" className="custom-back" />
+                </IonButtons>
+                <IonButtons slot="end">
+                    <IonButton className="custom-button">
+                        <IonIcon icon={ shapesOutline } />
+                    </IonButton>
+                </IonButtons>
                 <IonTitle>Donor Login </IonTitle>
             </IonToolbar>
         </IonHeader>
-
         <IonContent fullscreen>
             <IonHeader collapse="condense" >
                 <IonToolbar>
