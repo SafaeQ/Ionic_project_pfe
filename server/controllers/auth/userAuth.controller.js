@@ -19,13 +19,7 @@ const assoc_signup = async (req, res, next)=>{
 
         const hashedPassword = getHashedPassword(password)
 
-        const uploadedImageFile = req.files
-
-        let avatar = [];
-
-        for (const item of uploadedImageFile) {
-                avatar.push(item.filename)
-        }
+        const avatar = req.file.filename
 
         const user = await Association.create({
                 fullName,
@@ -38,7 +32,7 @@ const assoc_signup = async (req, res, next)=>{
                 image: avatar,
                 role: 'association'
         })
-        console.log(image);
+
         const result = await user.save()
 
         res.status(200).send(result)
