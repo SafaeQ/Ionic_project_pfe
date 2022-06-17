@@ -59,12 +59,11 @@ const SignupAssoc = () => {
                 "description": description,
                 "image": image
             }
-            api.post("/association", data)
+            api.post("/register-association", data)
                 .then(res => {
                     console.log(res.data)
                     history.push("/home");
                 })
-                history.push("/login");
 
         } catch (error) {
             console.log(error);

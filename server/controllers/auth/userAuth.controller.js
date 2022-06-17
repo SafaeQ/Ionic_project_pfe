@@ -38,7 +38,7 @@ const assoc_signup = async (req, res, next)=>{
                 image: avatar,
                 role: 'association'
         })
-
+        console.log(image);
         const result = await user.save()
 
         res.status(200).send(result)

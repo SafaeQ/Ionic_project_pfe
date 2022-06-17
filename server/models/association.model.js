@@ -17,8 +17,8 @@ const Association = mongoose.model(
             required:true
         },
         image:{
-            data: Buffer,
-            type: Array
+            type: String,
+            required: true
         }, 
         description:{
             type:String,
