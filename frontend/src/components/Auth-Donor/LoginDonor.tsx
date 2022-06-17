@@ -119,7 +119,6 @@ function LoginDonor() {
                 </IonRow>
             </IonGrid>
         </IonContent>
-
         <IonFooter>
             <IonGrid className='ion-no-margin ion-no-padding'>
                         <Action message="If you don't have an account please" text="Sign up" link="/signup-donor" />

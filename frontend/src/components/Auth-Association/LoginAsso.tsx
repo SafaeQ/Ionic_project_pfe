@@ -30,16 +30,6 @@ function LoginAsso() {
         console.log('clicked');
 
         try {
-            const loginData = {
-                "email": email,
-                "password": password
-            }
-            api.post("/login", loginData)
-                .then(res => {    
-                    console.log(res.data)
-                    history.push("/home");
-                })
-        } catch (error) {
             if (!email) {
                 setMessage("Please enter a valid email");
                 setIserror(true);
@@ -57,6 +47,17 @@ function LoginAsso() {
                 setIserror(true);
                 return;
             }
+            
+            const loginData = {
+                "email": email,
+                "password": password
+            }
+            api.post("/login", loginData)
+                .then(res => {    
+                    console.log(res.data)
+                    history.push("/home");
+                })
+        } catch (error) {
             setMessage("Auth failure! Please create an account");
             setIserror(true)
         }
