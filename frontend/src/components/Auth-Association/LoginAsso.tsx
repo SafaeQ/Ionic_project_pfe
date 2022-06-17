@@ -42,7 +42,7 @@ function LoginAsso() {
                 return;
             }
             
-            if (!password || password.length < 6) {
+            if (!validatePassword(password) || password.length < 6) {
                 setMessage("Please enter your password");
                 setIserror(true);
                 return;
