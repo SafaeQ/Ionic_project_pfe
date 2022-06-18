@@ -20,7 +20,7 @@ return (
                 </IonToolbar>
             </IonHeader>
 			<IonCard>
-				<img src="../assets/images/media.png" alt="heyy" />
+				<img src='../assets/images/téléchargement.webp' className="mx-auto d-block card-img-top" name="file" accept="image/*"  alt="heyy" />
 				<IonCardContent>
 					<IonCardTitle >
 						Heyyy
@@ -34,7 +34,8 @@ return (
 		</IonContent>
 		<IonFooter>
 			<IonGrid>
-				{/* <Action message="Already got an account?" text="Login" link="/login" /> */}				</IonGrid>
+				
+			</IonGrid>
 		</IonFooter>
     </IonPage>
   );
