@@ -1,4 +1,4 @@
-import { IonBackButton, IonButton, IonButtons, IonCardTitle, IonCol, IonContent, IonFooter,IonItem, IonLabel, IonInput, IonGrid, IonHeader, IonIcon, IonPage, IonRouterLink, IonRow, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCardTitle, IonCol, IonContent, IonFooter,IonItem, IonLabel, IonInput, IonGrid, IonHeader, IonIcon, IonPage, IonRouterLink, IonRow, IonToolbar, IonTitle } from '@ionic/react';
 
 import { arrowBack, shapesOutline } from "ionicons/icons";
 import { Action } from '../utils/Action';
@@ -21,12 +21,12 @@ const SignupDonor = () => {
 				</IonToolbar>
 			</IonHeader>
 			<IonContent fullscreen>
+            <IonHeader collapse="condense" >
+                <IonToolbar>
+                        <IonTitle>Signup Donor</IonTitle>  
+                </IonToolbar>
+            </IonHeader>
                 <IonGrid className="ion-padding">
-                    <IonRow>
-                        <IonCol size="12" >
-                            <IonCardTitle>Sign up Donor</IonCardTitle>
-                        </IonCol>
-                    </IonRow>
                     <IonRow className="ion-no-margin ">
                         <IonCol >
                             <IonItem>

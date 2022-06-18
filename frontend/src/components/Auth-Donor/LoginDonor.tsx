@@ -80,7 +80,7 @@ function LoginDonor() {
         <IonContent fullscreen>
             <IonHeader collapse="condense" >
                 <IonToolbar>
-                        <IonTitle size="large">Donor Login</IonTitle>  
+                        <IonTitle>Donor Login</IonTitle>  
                 </IonToolbar>
             </IonHeader>
             <IonGrid>

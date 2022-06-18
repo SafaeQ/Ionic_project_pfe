@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import { IonBackButton, IonButton, IonButtons, IonCardTitle, IonCol, IonContent, IonFooter,IonItem, IonLabel, IonInput, IonGrid, IonHeader, IonIcon, IonPage, IonRouterLink, IonRow, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCardTitle, IonCol, IonContent, IonFooter,IonItem, IonLabel, IonInput, IonGrid, IonHeader, IonIcon, IonPage, IonRouterLink, IonRow, IonToolbar, IonTitle } from '@ionic/react';
 import { useHistory } from 'react-router';
 import { arrowBack, shapesOutline } from "ionicons/icons";
 import { Action } from '../utils/Action';
@@ -87,12 +87,12 @@ const SignupAssoc = () => {
 				</IonToolbar>
 			</IonHeader>
 			<IonContent fullscreen>
+            <IonHeader collapse="condense" >
+                <IonToolbar>
+                        <IonTitle>Signup Association</IonTitle>  
+                </IonToolbar>
+            </IonHeader>
                 <IonGrid className="ion-padding">
-                    <IonRow>
-                        <IonCol size="12" >
-                            <IonCardTitle>Signup Association</IonCardTitle>
-                        </IonCol>
-                    </IonRow>
                     <IonRow className="ion-no-margin ">
                         <IonCol >
                             <IonItem>

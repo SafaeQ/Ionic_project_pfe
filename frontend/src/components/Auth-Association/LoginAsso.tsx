@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router';
-import { IonButton, IonToolbar, IonTitle, IonAlert, IonIcon, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, } from '@ionic/react';
+import { IonButton, IonToolbar, IonTitle, IonAlert, IonIcon, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonRow, IonItem, IonLabel, IonInput, IonButtons, IonBackButton, } from '@ionic/react';
 import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
-
+import { arrowBack, shapesOutline } from "ionicons/icons";
 import api from '../../services/api';
 
 
@@ -65,11 +65,23 @@ function LoginAsso() {
 
 return (
     <IonPage>
+        <IonHeader>
+				<IonToolbar>
+                    <IonButtons slot="start">
+                        <IonBackButton icon={ arrowBack } text="" className="custom-back" />
+                    </IonButtons>
+                    <IonButtons slot="end">
+                        <IonButton className="custom-button">
+                            <IonIcon icon={ shapesOutline } />
+                        </IonButton>
+                    </IonButtons>
+				</IonToolbar>
+			</IonHeader>
         <IonContent fullscreen>
             
             <IonHeader collapse="condense" >
                 <IonToolbar>
-                        <IonTitle size="large">Association Login</IonTitle>  
+                        <IonTitle>Association Login</IonTitle>  
                 </IonToolbar>
             </IonHeader>
 
