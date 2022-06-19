@@ -11,14 +11,6 @@ interface Props {
 const AddProject: React.FC<Props> = (props) => {
     let history = useHistory()
 
-    const initialValues = {
-        name: "",
-        budge: "",
-        description: "",
-        category: "",
-        images: "",
-        assocition: ""
-    };
     const [name, setname] = useState('');
     const [budge, setbudge] = useState('');
     const [description, setdescription] = useState('');
