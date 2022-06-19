@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { IonCardTitle,IonToolbar,IonButtons, IonBackButton, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonTitle, IonCard, IonCardContent, IonButton, IonIcon, IonRow, IonCol, } from '@ionic/react';
-import { arrowBack, shapesOutline } from "ionicons/icons";
+import { IonCardTitle,IonToolbar,IonButtons, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonTitle, IonCard, IonCardContent, IonButton, IonIcon, IonRow, IonCol, } from '@ionic/react';
+import { shapesOutline } from "ionicons/icons";
 import api from '../services/api';
 
 
