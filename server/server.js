@@ -8,14 +8,18 @@ const db = require('./connection/db')
 
 const cors = require('cors')
 
+const path = require('path')
+
 
 const app = express()
+
+app.use("/images/image",express.static(path.join(__dirname, 'images')))
 
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.use(cors({origin: "*"}))
+app.use(cors({origin: true}))
 
 app.use(express.static('images'));
 

@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { IonCardTitle,IonToolbar,IonButtons, IonBackButton, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonTitle, IonCard, IonCardContent, } from '@ionic/react';
 import { arrowBack } from "ionicons/icons";
+import api from '../services/api';
 
 
 const Home: React.FC = () => {
+
+	const [projects, setProjects] = useState<any[]>([]);
+
+	const fetchData = ()=> {
+		api.get('/api/projects')
+		.then(res => {
+			setProjects(res.data)
+		})
+		.catch(err => {
+			console.log(err);
+			
+		})
+	}
+
+	useEffect(()=>{
+        fetchData()
+    },[])
+
 return (
     <IonPage>
         <IonHeader>
@@ -16,21 +35,39 @@ return (
 		<IonContent fullscreen>
 			<IonHeader collapse="condense" >
                 <IonToolbar>
-                        <IonTitle >Home</IonTitle>  
+                        <IonTitle style={{fontSize: 'larger'}}>Home</IonTitle>  
                 </IonToolbar>
             </IonHeader>
-			<IonCard>
-				<img src='../assets/images/téléchargement.webp' className="mx-auto d-block card-img-top" name="file" accept="image/*"  alt="heyy" />
+			<IonCard  >
+				{/* <img src={`http://127.0.0.1:9900/${project.images[0]}`} className="mx-auto d-block card-img-top"   alt="heyy" /> */}
 				<IonCardContent>
-					<IonCardTitle >
-						Heyyy
+					<IonCardTitle style={{fontSize: 'medium'}}>
+						title project
 					</IonCardTitle>
+					<a> 4004 DH </a>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Sed in lobortis nisl, vitae iaculis sapien.
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime recusandae quas sit sapiente accusantium amet. Ipsum quas, similique qui numquam ea praesentium fuga, eligendi debitis magnam enim assumenda iure earum.
 					</p>
 				</IonCardContent>
-			</IonCard>		
+			</IonCard>
+			{/* {projects.length > 0 ? (
+                projects.map((project, i)=> (
+			<IonCard  key={i}>
+				<img src={`http://127.0.0.1:9900/${project.images[0]}`} className="mx-auto d-block card-img-top"   alt="heyy" />
+				<IonCardContent>
+					<IonCardTitle >
+						{project.name}
+					</IonCardTitle>
+					<a> {project.budget} </a>
+					<p>
+						{project.description}
+					</p>
+				</IonCardContent>
+			</IonCard>
+				))
+			): (
+				<h1>none</h1>
+			)} */}
 		</IonContent>
 		<IonFooter>
 			<IonGrid>
