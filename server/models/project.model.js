@@ -29,8 +29,8 @@ const projectSchema = new Schema(
     },
     association: { 
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      trim: true,
+      // required: true,
+      // trim: true,
       ref: "Association"
     },
     images: {
