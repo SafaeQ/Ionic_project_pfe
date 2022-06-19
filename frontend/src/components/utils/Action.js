@@ -4,7 +4,7 @@ export const Action = props => (
 
     <IonRow className="ion-text-center ion-justify-content-center">
         <IonCol size="12">
-            <p className="text-white">
+            <p className="text-dark">
                 { props.message }
                 <IonRouterLink className="custom-link" routerLink={ props.link }> { props.text } &rarr;</IonRouterLink>
             </p>

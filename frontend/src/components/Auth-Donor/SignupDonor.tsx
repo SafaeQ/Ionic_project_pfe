@@ -1,4 +1,4 @@
-import { IonBackButton, IonButton, IonButtons, IonCardTitle, IonCol, IonContent, IonFooter,IonItem, IonLabel, IonInput, IonGrid, IonHeader, IonIcon, IonPage, IonRouterLink, IonRow, IonToolbar, IonTitle } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonFooter,IonItem, IonLabel, IonInput, IonGrid, IonHeader, IonIcon, IonPage, IonRow, IonToolbar, IonTitle } from '@ionic/react';
 
 import { arrowBack, shapesOutline } from "ionicons/icons";
 import { Action } from '../utils/Action';

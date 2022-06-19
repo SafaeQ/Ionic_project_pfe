@@ -35,10 +35,14 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+
+/* Import Components */
 import LoginAsso from './components/Auth-Association/LoginAsso';
 import LoginDonor from './components/Auth-Donor/LoginDonor';
 import SignupDonor from './components/Auth-Donor/SignupDonor';
 import SignupAssoc from './components/Auth-Association/SignupAssoc';
+import DetailsProject from './components/projects/DetailsProject';
+import AddProject from './components/projects/AddProject';
 
 setupIonicReact();
 
@@ -51,6 +55,14 @@ const App: React.FC = () => (
         <IonRouterOutlet id='menu'>
           <Route exact path="/home">
             <Home />
+          </Route>
+          
+          <Route exact path="/detail">
+            <DetailsProject />
+          </Route>
+          
+          <Route exact path="/create-project">
+            <AddProject />
           </Route>
 
           <Route exact path="/login">

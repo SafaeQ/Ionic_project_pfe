@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { IonCardTitle,IonToolbar,IonButtons, IonBackButton, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonTitle, IonCard, IonCardContent, } from '@ionic/react';
-import { arrowBack } from "ionicons/icons";
+import { IonCardTitle,IonToolbar,IonButtons, IonBackButton, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonTitle, IonCard, IonCardContent, IonButton, IonIcon, IonRow, IonCol, } from '@ionic/react';
+import { arrowBack, shapesOutline } from "ionicons/icons";
 import api from '../services/api';
 
 
@@ -27,8 +27,13 @@ return (
     <IonPage>
         <IonHeader>
 			<IonToolbar>
-                <IonButtons slot="start">
+                {/* <IonButtons slot="start">
                     <IonBackButton icon={ arrowBack } text="" className="custom-back" />
+                </IonButtons> */}
+				<IonButtons slot="end">
+                        <IonButton className="custom-button">
+                            <IonIcon icon={ shapesOutline } />
+                        </IonButton>
                 </IonButtons>
 			</IonToolbar>
 		</IonHeader>
@@ -38,6 +43,13 @@ return (
                         <IonTitle style={{fontSize: 'larger'}}>Home</IonTitle>  
                 </IonToolbar>
             </IonHeader>
+			<IonGrid>
+				<IonRow>
+					<IonCol size="12" className="col-md-12 text-center">
+						<IonButton color='danger' routerLink='/create-project'> New Project </IonButton>
+					</IonCol>
+				</IonRow>
+			</IonGrid>
 			<IonCard  >
 				{/* <img src={`http://127.0.0.1:9900/${project.images[0]}`} className="mx-auto d-block card-img-top"   alt="heyy" /> */}
 				<IonCardContent>
