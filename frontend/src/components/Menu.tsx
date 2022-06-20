@@ -35,6 +35,9 @@ const Menu = () => {
               <IonItem button routerLink={"/services"} routerDirection="none">
                 <IonLabel>Services</IonLabel>
               </IonItem>
+              <IonItem button routerLink={"/contact"} routerDirection="none">
+                <IonLabel>Contact Us</IonLabel>
+              </IonItem>
             </IonMenuToggle>
           </IonList>
         </IonContent>

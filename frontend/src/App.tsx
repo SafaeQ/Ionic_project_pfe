@@ -37,6 +37,7 @@ import DetailsProject from './components/projects/DetailsProject';
 import AddProject from './components/projects/AddProject';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
+import ContactUs from './pages/ContactUs';
 
 setupIonicReact();
 
@@ -80,6 +81,10 @@ const App: React.FC = () => (
           
           <Route exact path="/services">
             <Services />
+          </Route>
+          
+          <Route exact path="/contact">
+            <ContactUs />
           </Route>
           
           <Route exact path="/">
