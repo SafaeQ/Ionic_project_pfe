@@ -27,9 +27,6 @@ return (
     <IonPage>
         <IonHeader>
 			<IonToolbar>
-                {/* <IonButtons slot="start">
-                    <IonBackButton icon={ arrowBack } text="" className="custom-back" />
-                </IonButtons> */}
 				<IonButtons slot="end">
                         <IonButton className="custom-button">
                             <IonIcon icon={ shapesOutline } />
