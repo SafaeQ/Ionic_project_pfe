@@ -76,11 +76,6 @@ return (
 			</IonCard>
 				))	}
 		</IonContent>
-		<IonFooter>
-			<IonGrid>
-				
-			</IonGrid>
-		</IonFooter>
     </IonPage>
 );
 };
