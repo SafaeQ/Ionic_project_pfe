@@ -28,7 +28,7 @@ function AboutUs() {
               <img src='https://media.istockphoto.com/photos/alphabet-letter-wooden-blocks-with-words-give-in-child-and-parents-picture-id1199796265?k=20&m=1199796265&s=612x612&w=0&h=TeJYJu3rVe-5TChThhVc6xslFuZyqPseb4LDvsH1OuU='/>
                 <IonCardHeader>
                   <IonCardTitle>
-                    <h1 style={{ fontSize: 'medium'}}>About Us</h1>
+                    <h1 style={{ fontSize: 'medium'}}>Just Give</h1>
                   </IonCardTitle>
                 </IonCardHeader>     
                 <IonCardContent>
