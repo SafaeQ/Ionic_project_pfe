@@ -18,6 +18,10 @@ const Home: React.FC = () => {
 		})
 	}
 
+	const goToProject = (id: number) => {
+		window.location.href = `/projects/${id}`;
+	}
+
 	useEffect(()=>{
         fetchData()
     },[])
@@ -57,8 +61,8 @@ return (
 					</p>
 				</IonCardContent>
 			</IonCard>
-            { projects.map((project,i)=> (
-			<IonCard key={i}>
+            { projects.map((project, i)=> (
+			<IonCard key={i} type='submit' style={{pointerEvents: 'auto'}}>
 				<img src={`../../../server/images/${project.images}`} className="mx-auto d-block card-img-top"   alt="heyy" />
 				<IonCardContent>
 					<IonCardTitle >
@@ -78,7 +82,7 @@ return (
 			</IonGrid>
 		</IonFooter>
     </IonPage>
-  );
+);
 };
 
 export default Home;

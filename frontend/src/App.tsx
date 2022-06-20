@@ -2,12 +2,9 @@ import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
   IonRouterOutlet,
-  IonTabs,
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
-import Menu from './components/Menu'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -29,6 +26,8 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 /* Import Components */
+import Home from './pages/Home';
+import Menu from './components/Menu'
 import LoginAsso from './components/Auth-Association/LoginAsso';
 import LoginDonor from './components/Auth-Donor/LoginDonor';
 import SignupDonor from './components/Auth-Donor/SignupDonor';
@@ -38,6 +37,7 @@ import AddProject from './components/projects/AddProject';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import ContactUs from './pages/ContactUs';
+import Board from './pages/Bord';
 
 setupIonicReact();
 
@@ -87,8 +87,12 @@ const App: React.FC = () => (
             <ContactUs />
           </Route>
           
+          <Route exact path="/bord">
+            <Board />
+          </Route>
+          
           <Route exact path="/">
-            <Redirect to="/home" />
+            <Redirect to="/bord" />
           </Route>
         </IonRouterOutlet>
 
