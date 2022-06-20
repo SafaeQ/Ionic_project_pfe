@@ -4,7 +4,7 @@ import React from 'react';
 function Board() {
   return (
     <>
-        <IonContent>
+        <IonContent class='container' style={style}>
             <h1>Bord</h1>
             <div>
                 <img src='../../public/assets/images/logo.jpg' style={{ width:'12px' }}/>
@@ -18,3 +18,15 @@ function Board() {
 }
 
 export default Board;
+
+
+const style= {
+
+    width: '100%',
+    height: '100%',
+    background: 'red',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+}
