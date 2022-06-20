@@ -18,8 +18,8 @@ const getAllCategories = async (req, res) => {
 
 const createCategory = async (req, res) => {
   try {
-    const {name, project} = req.body
-    const newCategory = new Category({ name,project });
+    const {name,} = req.body
+    const newCategory = new Category({ name });
     await newCategory.save();
 
     return res.status(201).json({

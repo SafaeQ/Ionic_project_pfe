@@ -14,11 +14,11 @@ const categorySchema = new Schema(
         require: true,
         lowercase: true
     },
-    project: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'Project'
-    }
+    // project: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   required: true,
+    //   ref: 'Project'
+    // }
   },
   {
     timestamps: true,
