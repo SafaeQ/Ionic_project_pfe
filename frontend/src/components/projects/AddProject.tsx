@@ -12,7 +12,7 @@ const AddProject: React.FC<Props> = (props) => {
     let history = useHistory()
 
     const [name, setname] = useState('');
-    const [budge, setbudge] = useState('');
+    const [budget, setbudget] = useState('');
     const [description, setdescription] = useState('');
     const [category, setcategory] = useState('');
     const [images, setimages] = useState('');
@@ -20,37 +20,36 @@ const AddProject: React.FC<Props> = (props) => {
     const [iserror, setIserror] = useState<boolean>(false);
 
     function handleChangeName(event: any) {
-        setname(event.detail.value!)
+        setname(event.target.value)
     }
     function handleChangeBudget(event: any) {
-        setbudge(event.detail.value!)
+        setbudget(event.target.value)
     }
     function handleChangeDescription(event: any) {
-        setdescription(event.detail.value!)
+        setdescription(event.target.value)
     }
     function handleChangeCategory(event: any) {
-        setcategory(event.detail.value!)
+        setcategory(event.target.value)
     }
     function handleChangeImages(event: any) {
-        setimages(event.detail.value!)
+        setimages(event.target.files)
     }
 
     const registerSubmitHandler = (e: React.FormEvent) => {
         e.preventDefault();
         console.log('click');
+        const data = new FormData();
+        data.append('images', images)
+        data.append('name', name)
+        data.append('description', description)
+        data.append('category', category)
+        data.append('budget', budget)
         
-        const initialValues = {
-            name: name,
-            budge: budge,
-            description: description,
-            category: category,
-            images: images,
-            // assocition: assocition
-        };
 
-        api.post('/api/create-project', initialValues)
+        api.post('/api/create-project', data)
         .then(res => {    
             console.log(res.data)
+            setimages('http://localhost:9900/images/image/'+res.data.filename)
             history.push("/home");
         })
         .catch(err=> {
@@ -122,7 +121,7 @@ const AddProject: React.FC<Props> = (props) => {
                     </IonRow>
                     <IonRow className="ion-padding">
                         <IonCol>
-                                <input type='file' accept="image/*"  name='images' onChange={handleChangeImages}/>
+                                <input type='file' accept="image/*"  name='images' src={images} onChange={handleChangeImages}/>
                         </IonCol>
                     </IonRow>
                     <IonRow className="ion-padding">
