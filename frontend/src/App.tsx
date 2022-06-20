@@ -36,6 +36,7 @@ import SignupAssoc from './components/Auth-Association/SignupAssoc';
 import DetailsProject from './components/projects/DetailsProject';
 import AddProject from './components/projects/AddProject';
 import AboutUs from './pages/AboutUs';
+import Services from './pages/Services';
 
 setupIonicReact();
 
@@ -75,6 +76,10 @@ const App: React.FC = () => (
           
           <Route exact path="/about">
             <AboutUs />
+          </Route>
+          
+          <Route exact path="/services">
+            <Services />
           </Route>
           
           <Route exact path="/">

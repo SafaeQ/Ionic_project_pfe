@@ -32,8 +32,8 @@ const Menu = () => {
               <IonItem button routerLink={"/about"} routerDirection="none">
                 <IonLabel>About Us</IonLabel>
               </IonItem>
-              <IonItem button routerLink={"/page-2"} routerDirection="none">
-                <IonLabel>Page Two</IonLabel>
+              <IonItem button routerLink={"/services"} routerDirection="none">
+                <IonLabel>Services</IonLabel>
               </IonItem>
             </IonMenuToggle>
           </IonList>
