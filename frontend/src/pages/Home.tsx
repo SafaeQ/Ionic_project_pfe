@@ -10,12 +10,11 @@ const Home: React.FC = () => {
 
 	const fetchData = ()=> {
 		api.get('/api/projects')
-		.then(res => {
-			setProjects(res.data)
+		.then((res) => {
+			setProjects(res.data.data)
 		})
 		.catch(err => {
 			console.log(err);
-			
 		})
 	}
 
@@ -48,7 +47,6 @@ return (
 				</IonRow>
 			</IonGrid>
 			<IonCard  >
-				{/* <img src={`http://127.0.0.1:9900/${project.images[0]}`} className="mx-auto d-block card-img-top"   alt="heyy" /> */}
 				<IonCardContent>
 					<IonCardTitle style={{fontSize: 'medium'}}>
 						title project
@@ -59,10 +57,9 @@ return (
 					</p>
 				</IonCardContent>
 			</IonCard>
-			{/* {projects.length > 0 ? (
-                projects.map((project, i)=> (
-			<IonCard  key={i}>
-				<img src={`http://127.0.0.1:9900/${project.images[0]}`} className="mx-auto d-block card-img-top"   alt="heyy" />
+            { projects.map((project,i)=> (
+			<IonCard key={i}>
+				<img src={`../../../server/images/${project.images}`} className="mx-auto d-block card-img-top"   alt="heyy" />
 				<IonCardContent>
 					<IonCardTitle >
 						{project.name}
@@ -73,10 +70,7 @@ return (
 					</p>
 				</IonCardContent>
 			</IonCard>
-				))
-			): (
-				<h1>none</h1>
-			)} */}
+				))	}
 		</IonContent>
 		<IonFooter>
 			<IonGrid>
