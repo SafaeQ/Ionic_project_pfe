@@ -6,33 +6,33 @@ const projectValidation = require('../validation/projectValidation')
 const createProject = async (req, res) => {
 
     const {name, budget, category, description, association} = req.body
-    
     try {
         const { error } = projectValidation(req.body);
-
+        
         if (error) {
-
+            
             return res.status(400).send(error.details[0].message);
             
         }
 
         const imageFiles = req.files
-
+        
         const uploadImages = []
-
+        
         for (const imageFile of imageFiles) {
-
+            
             uploadImages.push(imageFile.filename)
         }
-
+        
         const project = await Project.create({name, budget, category, description, association, images: uploadImages})
-
-        if (!project)  res.status(400).send('some thing wrong') 
+        
+        if (!project) return res.status(400).send('some thing wrong') 
+        console.log(req.body,uploadImages,project);
 
         res.status(200).send(project)
 
     } catch (error) {
-
+        console.log(error)
         res.status(500).send(error)
     }
 }

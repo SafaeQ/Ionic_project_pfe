@@ -50,7 +50,7 @@ return (
 					</IonCol>
 				</IonRow>
 			</IonGrid>
-			<IonCard  >
+			<IonCard >
 				<IonCardContent>
 					<IonCardTitle style={{fontSize: 'medium'}}>
 						title project
@@ -63,7 +63,7 @@ return (
 			</IonCard>
             { projects.map((project, i)=> (
 			<IonCard key={i} type='submit' style={{pointerEvents: 'auto'}}>
-				<img src={`../../../server/images/${project.images}`} className="mx-auto d-block card-img-top"   alt="heyy" />
+				<img src={`http://localhost:9900/images/image/${project.images}`} className="mx-auto d-block card-img-top"   alt="heyy" />				
 				<IonCardContent>
 					<IonCardTitle >
 						{project.name}

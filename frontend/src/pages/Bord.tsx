@@ -1,18 +1,30 @@
-import { IonContent } from '@ionic/react';
+import { IonContent, IonFooter, IonPage, IonRow } from '@ionic/react';
 import React from 'react';
+import { Action } from '../components/utils/Action';
+import { Wave } from '../components/utils/Wave';
 
 function Board() {
   return (
     <>
-        <IonContent class='container' style={style}>
-            <h1>Bord</h1>
-            <div>
-                <img src='../../public/assets/images/logo.jpg' style={{ width:'12px' }}/>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime recusandae quas sit sapiente accusantium amet. Ipsum quas, similique qui numquam ea praesentium fuga, eligendi debitis magnam enim assumenda iure earum.
-                </p>
-            </div>
-        </IonContent>
+        <IonPage>
+            <IonContent class='container' style={style}>
+                <div>
+                    <div style={{background: '#ec3b43', borderRadius: '49px', height: '427px'}}>
+                        <img src='/assets/images/logo.jpg' />
+                    </div>
+                    <IonRow className="ion-text-center ion-justify-content-center">
+                        <p style={{ display: 'flex', justifyContent: 'center', padding:'14px' }}>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Maxime recusandae quas sit sapiente accusantium amet. Ipsum quas,
+                        </p>
+                    </IonRow>
+                </div>
+                <Action message="" text="Signin" link="/login" />
+            </IonContent>
+            <IonFooter>
+                <Wave/>
+            </IonFooter>
+        </IonPage>
     </>
   );
 }
