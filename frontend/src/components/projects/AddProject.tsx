@@ -32,7 +32,7 @@ const AddProject: React.FC<Props> = (props) => {
         setcategory(event.target.value)
     }
     function handleChangeImages(event: any) {
-        setimages(event.target.files)
+        setimages(event.target.value)
     }
 
     const registerSubmitHandler = (e: React.FormEvent) => {
@@ -45,11 +45,13 @@ const AddProject: React.FC<Props> = (props) => {
         data.append('category', category)
         data.append('budget', budget)
         
-
+        console.log('gff');
+        console.log(data)
         api.post('/api/create-project', data)
         .then(res => {    
-            console.log(res.data)
+            console.log(res.data.data);
             setimages('http://localhost:9900/images/image/'+res.data.filename)
+            
             history.push("/home");
         })
         .catch(err=> {
