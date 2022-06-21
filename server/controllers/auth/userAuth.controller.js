@@ -14,7 +14,7 @@ const assoc_signup = async (req, res, next)=>{
         const {fullName, email, password, phoneNumber, adress, members, description, role} = req.body 
 
         const oldUser = await Association.findOne({email})
-        console.log(req.body);
+        
         if (oldUser) return res.status(409).send('😊user already exist, please login')
         
         const hashedPassword = getHashedPassword(password)
