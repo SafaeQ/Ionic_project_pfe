@@ -27,7 +27,6 @@ const createProject = async (req, res) => {
         const project = await Project.create({name, budget, category, description, association, images: uploadImages})
         
         if (!project) return res.status(400).send('some thing wrong') 
-        console.log(req.body,uploadImages,project);
 
         res.status(200).send(project)
 

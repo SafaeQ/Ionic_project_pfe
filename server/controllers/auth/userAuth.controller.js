@@ -11,16 +11,14 @@ let jwt = require('jsonwebtoken')
 
 const assoc_signup = async (req, res, next)=>{
     try {
-        const {fullName, email, password, phoneNumber, adress, members, image, description, role} = req.body 
+        const {fullName, email, password, phoneNumber, adress, members, description, role} = req.body 
 
         const oldUser = await Association.findOne({email})
+        console.log(req.body);
+        if (oldUser) return res.status(409).send('😊user already exist, please login')
         
-        if (oldUser) res.status(409).send('😊user already exist, please login')
-
         const hashedPassword = getHashedPassword(password)
-
-        const avatar = req.file.filename
-
+        
         const user = await Association.create({
                 fullName,
                 email: email.toLowerCase(),
@@ -29,16 +27,15 @@ const assoc_signup = async (req, res, next)=>{
                 adress,
                 members,
                 description,
-                image: avatar,
                 role: 'association'
         })
-
+        
         const result = await user.save()
 
         res.status(200).send(result)
 
     } catch (error) {
-
+        console.log(error);
         res.status(404).send(error)
     }
     

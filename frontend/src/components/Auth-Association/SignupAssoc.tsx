@@ -1,10 +1,11 @@
 import {useState} from 'react'
-import { IonBackButton, IonButton, IonButtons, IonCardTitle, IonCol, IonContent, IonFooter,IonItem, IonLabel, IonInput, IonGrid, IonHeader, IonIcon, IonPage, IonRouterLink, IonRow, IonToolbar, IonTitle } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCol, IonContent, IonFooter,IonItem, IonLabel, IonInput, IonGrid, IonHeader, IonIcon, IonPage, IonRouterLink, IonRow, IonToolbar, IonTitle } from '@ionic/react';
 import { useHistory } from 'react-router';
 import { arrowBack, shapesOutline } from "ionicons/icons";
 import { Action } from '../utils/Action';
 import { Wave } from '../utils/Wave';
 import api from '../../services/api';
+import authService from '../../services/auth.services';
 
 const SignupAssoc = () => {
     const [fullName, setFullName] = useState('');
@@ -14,7 +15,6 @@ const SignupAssoc = () => {
     const [adress, setAdress] = useState('');
     const [members, setMembers] = useState('');
     const [description, setDescription] = useState('');
-    const [image, setImage] = useState('');
     
     let history = useHistory()
 
@@ -45,27 +45,16 @@ const SignupAssoc = () => {
         
     }
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         try {
-            let data = {
-                "fullName": fullName,
-                "email": email,
-                "password": password,
-                "phoneNumber": phoneNumber,
-                "adress": adress,
-                "members": members,
-                "description": description,
-                "image": image
-            }
-            api.post("/register-association", data)
-                .then(res => {
-                    // console.log(res.data)
+            await authService.signup(email, password, fullName, phoneNumber, adress, members, description).then(
+                (res: any) => {
                     history.push("/home");
-                })
-                console.log();
-                
+                    window.location.reload();
+                }
+            )
         } catch (error) {
             console.log(error);
             history.push("/signup");
@@ -141,11 +130,6 @@ const SignupAssoc = () => {
                                 <IonLabel position='floating'>Description </IonLabel>
                                 <IonInput type='text' onIonChange={handleChangeInput}></IonInput>
                             </IonItem>
-                        </IonCol>
-                    </IonRow>
-                    <IonRow className="ion-padding ">
-                        <IonCol>
-                                <input type='file' accept="image/*"  name='image'/>
                         </IonCol>
                     </IonRow>
                     <IonRow className="ion-padding">
