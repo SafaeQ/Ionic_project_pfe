@@ -35,13 +35,9 @@ const AddProject: React.FC<Props> = (props) => {
         e.preventDefault();
         console.log('click');
         const data = new FormData();
-        // data.append('images', images)
         Object.values(images).forEach(i=>{
                 data.append('images',i)
                 })
-        // images.forEach(i=>{
-        //     data.append('images',i)
-        //     })
         console.log(images);
         
         data.append('name', name)
