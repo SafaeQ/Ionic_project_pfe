@@ -4,16 +4,20 @@ const {createProject, getAllProject, getProjectById, updateProject, deleteProjec
 
 const upload = require('../utils/uploadImage')
 
+const checkAuthentication = require('../middlewares/isAuth')
 
-    projectRouter.post('/create-project', upload.array('images', 8), createProject)
+const isAuthorized = require('../middlewares/permission')
 
-    projectRouter.get('/projects', getAllProject)
 
-    projectRouter.get('/projects/:id', getProjectById)
+    projectRouter.post('/create-project', checkAuthentication,isAuthorized('association'), upload.array('images', 8), createProject)
 
-    projectRouter.put('/update-project/:id', upload.array('images', 8), updateProject)
+    projectRouter.get('/projects',checkAuthentication, getAllProject)
 
-    projectRouter.delete('/delete-project/:id', deleteProject)
+    projectRouter.get('/projects/:id',checkAuthentication, getProjectById)
+
+    projectRouter.put('/update-project/:id',checkAuthentication,isAuthorized('association'),  upload.array('images', 8), updateProject)
+
+    projectRouter.delete('/delete-project/:id',checkAuthentication,isAuthorized('association'),  deleteProject)
 
 
 module.exports = projectRouter
