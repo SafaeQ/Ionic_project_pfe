@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const api = require('./api')
 
 const signup = (email, password, fullName, phoneNumber, adress, members, description) => {
@@ -10,8 +12,10 @@ const signup = (email, password, fullName, phoneNumber, adress, members, descrip
         "members": members,
         "description": description,
     }
-    return api.post('/register-association', data)
+    console.log(data);
+    return axios.post('http://127.0.0.1:9900/register-association', data)
       .then((response) => {
+        console.log(response.data);
         if (response.data.token) {
           localStorage.setItem("user", JSON.stringify(response.data));
         }

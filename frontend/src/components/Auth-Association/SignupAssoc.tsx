@@ -49,6 +49,7 @@ const SignupAssoc = () => {
         e.preventDefault();
 
         try {
+            
             await authService.signup(email, password, fullName, phoneNumber, adress, members, description).then(
                 (res: any) => {
                     history.push("/home");
