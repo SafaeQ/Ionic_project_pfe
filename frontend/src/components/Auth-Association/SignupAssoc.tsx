@@ -47,11 +47,12 @@ const SignupAssoc = () => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
+        
         try {
             await authService.signup(email, password, fullName, phoneNumber, adress, members, description).then(
                 (res: any) => {
-                    history.push("/home");
-                    window.location.reload();
+                    history.push("/login");
+                    // console.log('response',res);
                 }
             )
         } catch (error) {
@@ -77,7 +78,7 @@ const SignupAssoc = () => {
 			<IonContent fullscreen>
             <IonHeader collapse="condense" >
                 <IonToolbar>
-                        <IonTitle>Signup Association</IonTitle>  
+                        <IonTitle>Signup Association {email} </IonTitle>  
                 </IonToolbar>
             </IonHeader>
                 <IonGrid className="ion-padding">
@@ -85,13 +86,13 @@ const SignupAssoc = () => {
                         <IonCol >
                             <IonItem>
                                 <IonLabel position='floating'> Full Name</IonLabel>
-                                <IonInput type='text'value={fullName}  onChange={(e) => setFullName((e.target as HTMLInputElement).value)}></IonInput>
+                                <IonInput type='text'value={fullName}  onKeyUp={(e) => setFullName((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                         <IonCol >
                             <IonItem>
                                 <IonLabel position='floating'> Your Email</IonLabel>
-                                <IonInput type='email'value={email}  onChange={(e) => setEmail((e.target as HTMLInputElement).value)}></IonInput>
+                                <IonInput type='email'value={email}  onKeyUp={(e) => setEmail((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>
@@ -99,13 +100,13 @@ const SignupAssoc = () => {
                         <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Your Password</IonLabel>
-                                <IonInput type='password'value={password}  onChange={(e) => setPassword((e.target as HTMLInputElement).value)}></IonInput>
+                                <IonInput type='password'value={password}  onKeyUp={(e) => setPassword((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                         <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Members</IonLabel>
-                                <IonInput type='number' value={members} onChange={(e) => setMembers((e.target as HTMLInputElement).value)}></IonInput>
+                                <IonInput type='number' value={members} onKeyUp={(e) => setMembers((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>
@@ -113,13 +114,13 @@ const SignupAssoc = () => {
                         <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Phone Number</IonLabel>
-                                <IonInput type='tel'value={phoneNumber}  onChange={(e) => setPhoneNumber((e.target as HTMLInputElement).value)}></IonInput>
+                                <IonInput type='tel'value={phoneNumber}  onKeyUp={(e) => setPhoneNumber((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                         <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Adress </IonLabel>
-                                <IonInput type='text'value={adress}  onChange={(e) => setAdress((e.target as HTMLInputElement).value)}></IonInput>
+                                <IonInput type='text'value={adress}  onKeyUp={(e) => setAdress((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>                    
@@ -127,7 +128,7 @@ const SignupAssoc = () => {
                         <IonCol >
                             <IonItem>
                                 <IonLabel position='floating'>Description </IonLabel>
-                                <IonInput type='text'value={description}  onChange={(e) => setDescription((e.target as HTMLInputElement).value)}></IonInput>
+                                <IonInput type='text'value={description}  onKeyUp={(e) => setDescription((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>

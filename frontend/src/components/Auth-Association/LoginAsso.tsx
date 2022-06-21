@@ -54,8 +54,8 @@ function LoginAsso() {
             }
             api.post("/login", loginData)
                 .then(res => {    
-                    if (res.data.accessToken) {
-                        localStorage.setItem("user", JSON.stringify(res.data));
+                    if (res.data.token) {
+                        localStorage.setItem("token", res.data.token);
                     }
                     console.log(res.data)
                     history.push("/home");
