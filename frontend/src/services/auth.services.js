@@ -12,8 +12,12 @@ const signup = (email, password, fullName, phoneNumber, adress, members, descrip
         "members": members,
         "description": description,
     }
-    console.log(data);
-    return axios.post('http://127.0.0.1:9900/register-association', data)
+    console.log('services',data);
+    return axios.post('http://localhost:9900/register-association', data, {
+      // 'Authorization': "JWT_TOKEN",
+      'Content-Type': 'application/json',
+      credentials: true
+  })
       .then((response) => {
         console.log(response.data);
         if (response.data.token) {

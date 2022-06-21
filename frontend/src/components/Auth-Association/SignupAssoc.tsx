@@ -18,38 +18,36 @@ const SignupAssoc = () => {
     
     let history = useHistory()
 
-    const handleChangeInput = (e: any) => {
-        const { fullName, email, password, phoneNumber, adress, members, description } = e.target;
+    // const handleChangeInput = (e: any) => {
+        // const { fullName, email, password, phoneNumber, adress, members, description } = e.target;
 
-        if (fullName === "fullName") {
-            setFullName(fullName.value);
-        }
-        if (email === "email") {
-            setEmail(email.value);
-        }
-        if (password === "password") { 
-            setPassword(password.value);
-        }
-        if (phoneNumber === "phoneNumber") {
-            setPhoneNumber(phoneNumber.value);
-        }
-        if (adress === "adress") {
-            setAdress(adress.value);
-        }
-        if (members === "members") {
-            setMembers(members.value);
-        }
-        if (description === "description") {
-            setDescription(description.value);
-        }
+    //     if (fullName === "fullName") {
+    //         setFullName(fullName.value);
+    //     }
+    //     if (email === "email") {
+    //         setEmail(email.value);
+    //     }
+    //     if (password === "password") { 
+    //         setPassword(password.value);
+    //     }
+    //     if (phoneNumber === "phoneNumber") {
+    //         setPhoneNumber(phoneNumber.value);
+    //     }
+    //     if (adress === "adress") {
+    //         setAdress(adress.value);
+    //     }
+    //     if (members === "members") {
+    //         setMembers(members.value);
+    //     }
+    //     if (description === "description") {
+    //         setDescription(description.value);
+    //     }
         
-    }
+    // }
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-
         try {
-            
             await authService.signup(email, password, fullName, phoneNumber, adress, members, description).then(
                 (res: any) => {
                     history.push("/home");
@@ -87,13 +85,13 @@ const SignupAssoc = () => {
                         <IonCol >
                             <IonItem>
                                 <IonLabel position='floating'> Full Name</IonLabel>
-                                <IonInput type='text' onIonChange={handleChangeInput}></IonInput>
+                                <IonInput type='text'value={fullName}  onChange={(e) => setFullName((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                         <IonCol >
                             <IonItem>
                                 <IonLabel position='floating'> Your Email</IonLabel>
-                                <IonInput type='email' onIonChange={handleChangeInput}></IonInput>
+                                <IonInput type='email'value={email}  onChange={(e) => setEmail((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>
@@ -101,13 +99,13 @@ const SignupAssoc = () => {
                         <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Your Password</IonLabel>
-                                <IonInput type='password' onIonChange={handleChangeInput}></IonInput>
+                                <IonInput type='password'value={password}  onChange={(e) => setPassword((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                         <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Members</IonLabel>
-                                <IonInput type='number' onIonChange={handleChangeInput}></IonInput>
+                                <IonInput type='number' value={members} onChange={(e) => setMembers((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>
@@ -115,13 +113,13 @@ const SignupAssoc = () => {
                         <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Phone Number</IonLabel>
-                                <IonInput type='tel' onIonChange={handleChangeInput}></IonInput>
+                                <IonInput type='tel'value={phoneNumber}  onChange={(e) => setPhoneNumber((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                         <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Adress </IonLabel>
-                                <IonInput type='text' onIonChange={handleChangeInput}></IonInput>
+                                <IonInput type='text'value={adress}  onChange={(e) => setAdress((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>                    
@@ -129,7 +127,7 @@ const SignupAssoc = () => {
                         <IonCol >
                             <IonItem>
                                 <IonLabel position='floating'>Description </IonLabel>
-                                <IonInput type='text' onIonChange={handleChangeInput}></IonInput>
+                                <IonInput type='text'value={description}  onChange={(e) => setDescription((e.target as HTMLInputElement).value)}></IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>
@@ -149,3 +147,4 @@ const SignupAssoc = () => {
 };
 
 export default SignupAssoc;
+

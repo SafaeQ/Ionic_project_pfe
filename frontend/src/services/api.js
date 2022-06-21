@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default axios.create({
+const api = axios.create({
     baseURL: 'http://127.0.0.1:9900',
     headers: {
         'Authorization': "JWT_TOKEN",
@@ -8,3 +8,5 @@ export default axios.create({
         withCredentials: true
     }
 });
+
+export default api;
