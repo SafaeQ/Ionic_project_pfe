@@ -15,23 +15,11 @@ const projectSchema = new Schema(
         required: true,
         default: 0
     },
-    category: { 
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        trim: true,
-        ref: "Category"
-    },
     description: { 
         type: String,
         required: true,
         lowercase: true,
         trim: true
-    },
-    association: { 
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      trim: true,
-      ref: "Association"
     },
     images: {
       data: Buffer,

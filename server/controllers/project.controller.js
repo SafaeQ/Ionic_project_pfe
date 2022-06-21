@@ -5,7 +5,8 @@ const projectValidation = require('../validation/projectValidation')
 
 const createProject = async (req, res) => {
 
-    const {name, budget, category, description, association} = req.body
+    const {name, budget, description} = req.body
+    
     try {
         const { error } = projectValidation(req.body);
         
@@ -16,6 +17,7 @@ const createProject = async (req, res) => {
         }
 
         const imageFiles = req.files
+        console.log(imageFiles);
         
         const uploadImages = []
         
@@ -23,8 +25,9 @@ const createProject = async (req, res) => {
             
             uploadImages.push(imageFile.filename)
         }
+        console.log('uploadImages',uploadImages);
         
-        const project = await Project.create({name, budget, category, description, association, images: uploadImages})
+        const project = await Project.create({name, budget, description, images: uploadImages})
         
         if (!project) return res.status(400).send('some thing wrong') 
 
@@ -32,13 +35,13 @@ const createProject = async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.status(500).send(error)
+        // res.status(500).send(error)
     }
 }
 
 const getAllProject = (req, res) => {
     
-    Project.find().populate('association').populate('category')
+    Project.find()
         .then(data => {
             
             let message = "";

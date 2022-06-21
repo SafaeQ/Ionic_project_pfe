@@ -52,12 +52,14 @@ function LoginAsso() {
                 "email": email,
                 "password": password
             }
+
             api.post("/login", loginData)
                 .then(res => {    
                     if (res.data.token) {
                         localStorage.setItem("token", res.data.token);
+                    }else {
+                        history.push('/login')
                     }
-                    console.log(res.data)
                     history.push("/home");
                 })
         } catch (error) {

@@ -14,8 +14,7 @@ const AddProject: React.FC<Props> = (props) => {
     const [name, setname] = useState('');
     const [budget, setbudget] = useState('');
     const [description, setdescription] = useState('');
-    const [category, setcategory] = useState('');
-    const [images, setimages] = useState('');
+    const [images, setimages] = useState([]);
     const [message, setMessage] = useState('');
     const [iserror, setIserror] = useState<boolean>(false);
 
@@ -28,29 +27,32 @@ const AddProject: React.FC<Props> = (props) => {
     function handleChangeDescription(event: any) {
         setdescription(event.target.value)
     }
-    function handleChangeCategory(event: any) {
-        setcategory(event.target.value)
-    }
     function handleChangeImages(event: any) {
-        setimages(event.target.value)
+        setimages(event.target.files)
     }
 
     const registerSubmitHandler = (e: React.FormEvent) => {
         e.preventDefault();
         console.log('click');
         const data = new FormData();
-        data.append('images', images)
+        // data.append('images', images)
+        Object.values(images).forEach(i=>{
+                data.append('images',i)
+                })
+        // images.forEach(i=>{
+        //     data.append('images',i)
+        //     })
+        console.log(images);
+        
         data.append('name', name)
         data.append('description', description)
-        data.append('category', category)
         data.append('budget', budget)
-        
-        console.log('gff');
-        console.log(data)
+console.log(data.get('name'));
+
         api.post('/api/create-project', data)
         .then(res => {    
-            console.log(res.data.data);
-            setimages('http://localhost:9900/images/image/'+res.data.filename)
+            console.log(res.data);
+            // setimages('http://localhost:9900/images/image/'+res.data.filename)
             
             history.push("/home");
         })
@@ -108,14 +110,6 @@ const AddProject: React.FC<Props> = (props) => {
                     <IonRow className="ion-no-margin ">
                         <IonCol>
                             <IonItem>
-                                <IonLabel position='floating'> Category</IonLabel>
-                                <IonInput name='category' type='text' onIonChange={handleChangeCategory}></IonInput>
-                            </IonItem>
-                        </IonCol>
-                    </IonRow>
-                    <IonRow className="ion-no-margin ">
-                        <IonCol>
-                            <IonItem>
                                 <IonLabel position='floating'> Description</IonLabel>
                                 <IonInput name='description' type='text' onIonChange={handleChangeDescription}></IonInput>
                             </IonItem>
@@ -123,7 +117,7 @@ const AddProject: React.FC<Props> = (props) => {
                     </IonRow>
                     <IonRow className="ion-padding">
                         <IonCol>
-                                <input type='file' accept="image/*"  name='images' src={images} onChange={handleChangeImages}/>
+                                <input type='file' multiple accept="image/*"  name='images' onChange={handleChangeImages}/>
                         </IonCol>
                     </IonRow>
                     <IonRow className="ion-padding">

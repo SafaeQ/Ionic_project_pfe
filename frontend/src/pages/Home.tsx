@@ -4,7 +4,7 @@ import { shapesOutline } from "ionicons/icons";
 import api from '../services/api';
 
 
-const Home: React.FC = () => {
+const Home: React.FC = (props) => {
 
 	const [projects, setProjects] = useState<any[]>([]);
 
@@ -63,7 +63,7 @@ return (
 			</IonCard>
             { projects.map((project, i)=> (
 			<IonCard key={i} type='submit' style={{pointerEvents: 'auto'}}>
-				<img src={`http://localhost:9900/images/image/${project.images}`} className="mx-auto d-block card-img-top"   alt="heyy" />				
+				<img src={`http://localhost:9900/images/image/${project.images[0]}`} className="mx-auto d-block card-img-top"   alt="heyy" />				
 				<IonCardContent>
 					<IonCardTitle >
 						{project.name}
