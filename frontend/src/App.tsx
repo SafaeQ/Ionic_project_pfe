@@ -49,10 +49,8 @@ const App: React.FC = () => (
       <Menu/>
 
         <IonRouterOutlet id='menu'>
-        <PrivateRoute path="/home" component={Home} />
-          {/* <Route exact path="/home">
-            <Home />
-          </Route> */}
+
+          <PrivateRoute path="/home" component={Home} />
           
           <Route exact path="/projects/:id">
             <DetailsProject />
