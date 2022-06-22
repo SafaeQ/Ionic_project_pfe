@@ -4,11 +4,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import api from '../../services/api';
 
-interface Props {
 
-}
-
-const AddProject: React.FC<Props> = (props) => {
+const AddProject: React.FC = (props) => {
     let history = useHistory()
 
     const [name, setname] = useState('');
