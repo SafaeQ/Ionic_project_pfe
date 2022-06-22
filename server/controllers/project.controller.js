@@ -40,7 +40,7 @@ const createProject = async (req, res) => {
 
 const getAllProject = (req, res) => {
     
-    Project.find()
+    Project.find().sort('-createdAt')
         .then(data => {
             
             let message = "";
