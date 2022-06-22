@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import api from '../../services/api';
 
-function DetailsProject() {
+
+
+const DetailsProject: React.FC = (props) => {
+  const [projects, setProjects] = useState([]);
+
+  const fetchDatabyId = (id: string) => {
+    api.get(`/api/projects/${id}`)
+		.then((res) => {
+			setProjects(res.data.data)
+		})
+		.catch(err => {
+			console.log(err);
+		})
+  }
+  useEffect(()=>{
+    fetchDatabyId
+},[])
+
   return (
     <div>
-      <h1>heyy</h1>
+        <h1> {projects.id} </h1>
     </div>
   );
 }

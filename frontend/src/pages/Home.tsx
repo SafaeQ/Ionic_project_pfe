@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonCardTitle,IonToolbar,IonButtons, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonTitle, IonCard, IonCardContent, IonButton, IonIcon, IonRow, IonCol, } from '@ionic/react';
+import { IonCardTitle,IonToolbar,IonButtons, IonContent, IonGrid, IonHeader, IonPage, IonTitle, IonCard, IonCardContent, IonButton, IonIcon, IonRow, IonCol, } from '@ionic/react';
 import { shapesOutline } from "ionicons/icons";
 import api from '../services/api';
 import { Link } from 'react-router-dom';
@@ -19,13 +19,13 @@ const Home: React.FC = (props) => {
 		})
 	}
 
-	const goToProject = (e:any, id: string) => {
-		e.preventDefault()
-		console.log('clicked');
-		window.location.href = `/projects/${id}`;
-		console.log(id);
+	// const goToProject = (e:any, id: string) => {
+	// 	e.preventDefault()
+	// 	console.log('clicked');
+	// 	window.location.href = `/projects/${id}`;
+	// 	console.log(id);
 		
-	}
+	// }
 
 	useEffect(()=>{
         fetchData()
