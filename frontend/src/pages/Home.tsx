@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IonCardTitle,IonToolbar,IonButtons, IonContent, IonFooter, IonGrid, IonHeader, IonPage, IonTitle, IonCard, IonCardContent, IonButton, IonIcon, IonRow, IonCol, } from '@ionic/react';
 import { shapesOutline } from "ionicons/icons";
 import api from '../services/api';
+import { Link } from 'react-router-dom';
 
 
 const Home: React.FC = (props) => {
@@ -18,8 +19,12 @@ const Home: React.FC = (props) => {
 		})
 	}
 
-	const goToProject = (id: number) => {
+	const goToProject = (e:any, id: string) => {
+		e.preventDefault()
+		console.log('clicked');
 		window.location.href = `/projects/${id}`;
+		console.log(id);
+		
 	}
 
 	useEffect(()=>{
@@ -50,19 +55,8 @@ return (
 					</IonCol>
 				</IonRow>
 			</IonGrid>
-			<IonCard >
-				<IonCardContent>
-					<IonCardTitle style={{fontSize: 'medium'}}>
-						title project
-					</IonCardTitle>
-					<a> 4004 DH </a>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime recusandae quas sit sapiente accusantium amet. Ipsum quas, similique qui numquam ea praesentium fuga, eligendi debitis magnam enim assumenda iure earum.
-					</p>
-				</IonCardContent>
-			</IonCard>
-            { projects.map((project, i)=> (
-			<IonCard key={i} type='submit' style={{pointerEvents: 'auto'}}>
+            { projects.map((project)=> (
+			<IonCard key={project._id} type='submit' style={{pointerEvents: 'auto'}}>
 				<img src={`http://localhost:9900/images/image/${project.images[0]}`} className="mx-auto d-block card-img-top"   alt="heyy" />				
 				<IonCardContent>
 					<IonCardTitle >
@@ -72,6 +66,9 @@ return (
 					<p>
 						{project.description}
 					</p>
+					<Link type='submit' to={`/projects/${project._id}`}>
+						more details
+					</Link>
 				</IonCardContent>
 			</IonCard>
 				))	}
