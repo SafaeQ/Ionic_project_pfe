@@ -24,7 +24,7 @@ const Home: React.FC = (props) => {
 
 	useEffect(()=>{
         fetchData()
-    },[])
+    },[projects])
 
 return (
     <IonPage>

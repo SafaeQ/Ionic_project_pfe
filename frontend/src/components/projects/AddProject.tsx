@@ -45,7 +45,6 @@ const AddProject: React.FC = (props) => {
             // setimages('http://localhost:9900/images/image/'+res.data.filename)
             
             history.push("/home");
-            window.location.reload()
         })
         .catch(err=> {
             console.log(err);
