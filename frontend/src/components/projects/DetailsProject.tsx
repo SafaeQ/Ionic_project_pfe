@@ -21,12 +21,12 @@ const DetailsProject: React.FC = (props) => {
     api.get(`/api/projects/${id}`)
 		.then((res) => {
 			setProjects(res.data)
-      console.log(res.data);
+      console.log("test",res.data.data.name);
 		})
 		.catch(err => {
 			console.log(err);
 		})
-    console.log(projects);
+    // console.log("dataan",projects.data.name);
     
   }, []);
 
@@ -50,7 +50,7 @@ const DetailsProject: React.FC = (props) => {
             </IonHeader>
         </IonContent>
         <div>
-            {/* <h1> {projects.name} </h1> */}
+            {/* <h1> {projects.data.name} </h1> */}
         </div>
       </IonPage>
     </>
