@@ -17,7 +17,6 @@ const createProject = async (req, res) => {
         }
 
         const imageFiles = req.files
-        console.log(imageFiles);
         
         const uploadImages = []
         
