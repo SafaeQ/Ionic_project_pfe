@@ -54,7 +54,7 @@ function LoginAsso() {
             }
 
             api.post("/login", loginData)
-                .then(res => {    
+                .then(res => {
                     if (res.data.token) {
                         localStorage.setItem("token", res.data.token);
                     }else {
