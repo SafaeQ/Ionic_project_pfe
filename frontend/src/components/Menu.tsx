@@ -5,15 +5,22 @@ import {
     IonTitle,
     IonContent,
     IonList,
-    IonMenuToggle,
     IonItem,
     IonLabel,
   } from "@ionic/react";
-import React from "react";
+import React, { useState } from "react";
 import { withRouter } from 'react-router-dom';
 
   
 const Menu = () => {
+
+  const [isLoggedin, setIsLoggedin] = useState(false);
+
+    const signout = () =>{
+        localStorage.removeItem('token');
+        setIsLoggedin(false);
+    }
+
     return (
       <IonMenu type="overlay" contentId="menu" menuId="main" side="start">
         <IonHeader>
@@ -22,24 +29,29 @@ const Menu = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent>
-          <IonList>
-            <IonMenuToggle auto-hide="false">
+            { isLoggedin ? (
+              <>
+                <IonList>
               <IonItem button routerLink={"/home"} routerDirection="none">
                 <IonLabel>Home</IonLabel>
+              </IonItem><IonItem button routerLink={"/about"} routerDirection="none">
+                  <IonLabel>About Us</IonLabel>
+              </IonItem><IonItem button routerLink={"/services"} routerDirection="none">
+                  <IonLabel>Services</IonLabel>
+              </IonItem><IonItem button routerLink={"/contact"} routerDirection="none">
+                  <IonLabel>Contact Us</IonLabel>
               </IonItem>
-            </IonMenuToggle>
-            <IonMenuToggle auto-hide="false">
-              <IonItem button routerLink={"/about"} routerDirection="none">
-                <IonLabel>About Us</IonLabel>
+              <IonItem button routerLink={"/login"} routerDirection="none">
+                  <IonLabel onClick={signout}>
+                    Logout
+                  </IonLabel>
               </IonItem>
-              <IonItem button routerLink={"/services"} routerDirection="none">
-                <IonLabel>Services</IonLabel>
-              </IonItem>
-              <IonItem button routerLink={"/contact"} routerDirection="none">
-                <IonLabel>Contact Us</IonLabel>
-              </IonItem>
-            </IonMenuToggle>
-          </IonList>
+            </IonList>
+            </>
+            ) : (
+              <h1>none</h1>
+            )
+            }
         </IonContent>
       </IonMenu>
     );
