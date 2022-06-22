@@ -8,8 +8,8 @@ const checkAuthentication = require('../middlewares/isAuth')
 
 const isAuthorized = require('../middlewares/permission')
 
-// checkAuthentication,isAuthorized('association')
-    projectRouter.post('/create-project',  upload.array('images', 8), createProject)
+// coach
+    projectRouter.post('/create-project', checkAuthentication, upload.array('images', 8), createProject)
 
     projectRouter.get('/projects',checkAuthentication, getAllProject)
 
