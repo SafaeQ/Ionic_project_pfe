@@ -2,13 +2,22 @@ import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonTitl
 import { shapesOutline } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
+import { useParams } from 'react-router-dom'
 
 
 
 const DetailsProject: React.FC = (props) => {
-  const [projects, setProjects] = useState([]);
+  
+  const [projects, setProjects] = useState<Array<Object>>([]);
 
-  const fetchDatabyId = (id: string) => {   
+  type Params = {
+    id: string;
+  };
+
+  const {id} = useParams<Params>()
+
+  useEffect(() => {
+    
     api.get(`/api/projects/${id}`)
 		.then((res) => {
 			setProjects(res.data)
@@ -17,7 +26,9 @@ const DetailsProject: React.FC = (props) => {
 		.catch(err => {
 			console.log(err);
 		})
-  }
+    console.log(projects);
+    
+  }, []);
 
   return (
     <>
