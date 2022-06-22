@@ -1,3 +1,0 @@
-function PrivateRoute({ children, ...rest}) {
-    
-}

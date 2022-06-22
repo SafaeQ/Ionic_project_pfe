@@ -38,18 +38,21 @@ import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import ContactUs from './pages/ContactUs';
 import Board from './pages/Bord';
+import PrivateRoute from './services/privateRoute';
 
 setupIonicReact();
 
 const App: React.FC = () => (
+  
   <IonApp>
     <IonReactRouter>
       <Menu/>
 
         <IonRouterOutlet id='menu'>
-          <Route exact path="/home">
+        <PrivateRoute path="/home" component={Home} />
+          {/* <Route exact path="/home">
             <Home />
-          </Route>
+          </Route> */}
           
           <Route exact path="/projects/:id">
             <DetailsProject />
