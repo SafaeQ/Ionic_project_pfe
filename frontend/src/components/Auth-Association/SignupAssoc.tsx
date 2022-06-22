@@ -18,32 +18,6 @@ const SignupAssoc = () => {
     
     let history = useHistory()
 
-    // const handleChangeInput = (e: any) => {
-        // const { fullName, email, password, phoneNumber, adress, members, description } = e.target;
-
-    //     if (fullName === "fullName") {
-    //         setFullName(fullName.value);
-    //     }
-    //     if (email === "email") {
-    //         setEmail(email.value);
-    //     }
-    //     if (password === "password") { 
-    //         setPassword(password.value);
-    //     }
-    //     if (phoneNumber === "phoneNumber") {
-    //         setPhoneNumber(phoneNumber.value);
-    //     }
-    //     if (adress === "adress") {
-    //         setAdress(adress.value);
-    //     }
-    //     if (members === "members") {
-    //         setMembers(members.value);
-    //     }
-    //     if (description === "description") {
-    //         setDescription(description.value);
-    //     }
-        
-    // }
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -52,7 +26,6 @@ const SignupAssoc = () => {
             await authService.signup(email, password, fullName, phoneNumber, adress, members, description).then(
                 (res: any) => {
                     history.push("/login");
-                    // console.log('response',res);
                 }
             )
         } catch (error) {
