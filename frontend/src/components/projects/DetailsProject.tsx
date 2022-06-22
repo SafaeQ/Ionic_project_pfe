@@ -5,7 +5,6 @@ import api from '../../services/api';
 
 const DetailsProject: React.FC = (props) => {
   const [projects, setProjects] = useState([]);
-  const data = {}
 
   const fetchDatabyId = (id: string) => {   
     api.get(`/api/projects/${id}`)
@@ -17,9 +16,6 @@ const DetailsProject: React.FC = (props) => {
 			console.log(err);
 		})
   }
-//   useEffect(()=>{
-//     fetchDatabyId
-// },[])
 
   return (
     <div>
