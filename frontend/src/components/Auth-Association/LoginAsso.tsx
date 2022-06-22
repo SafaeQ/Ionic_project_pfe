@@ -61,6 +61,7 @@ function LoginAsso() {
                         history.push('/login')
                     }
                     history.push("/home");
+                    window.location.reload()
                 })
         } catch (error) {
             setMessage("Auth failure! Please create an account");

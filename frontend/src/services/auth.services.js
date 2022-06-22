@@ -14,14 +14,13 @@ const signup = (email, password, fullName, phoneNumber, adress, members, descrip
     }
     console.log('services',data);
     return axios.post('http://localhost:9900/register-association', data, {
-      // 'Authorization': "JWT_TOKEN",
       'Content-Type': 'application/json',
       credentials: true
   })
       .then((response) => {
         console.log(response.data);
         if (response.data.token) {
-          localStorage.setItem("user", JSON.stringify(response.data));
+          localStorage.setItem("token", JSON.stringify(response.data));
         }
         return response.data;
       });
@@ -42,7 +41,7 @@ const signup = (email, password, fullName, phoneNumber, adress, members, descrip
   };
 
   const logout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("token");
   };
 
   const authService = {
