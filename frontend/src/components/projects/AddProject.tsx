@@ -33,21 +33,18 @@ const AddProject: React.FC<Props> = (props) => {
 
     const registerSubmitHandler = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('click');
+
         const data = new FormData();
         Object.values(images).forEach(i=>{
                 data.append('images',i)
                 })
-        console.log(images);
-        
+
         data.append('name', name)
         data.append('description', description)
         data.append('budget', budget)
-console.log(data.get('name'));
 
         api.post('/api/create-project', data)
-        .then(res => {    
-            console.log(res.data);
+        .then(res => {
             // setimages('http://localhost:9900/images/image/'+res.data.filename)
             
             history.push("/home");
