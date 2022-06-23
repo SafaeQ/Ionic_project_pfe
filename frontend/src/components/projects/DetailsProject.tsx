@@ -37,7 +37,7 @@ const DetailsProject: React.FC = (props) => {
       // })
       // setProject(newProject)
 
-      setProject((project: any)=> project.filter((p: any)=> p !== id))
+      setProject((project: any)=> project.filter((p: any)=> p.id !== id))     
       history.push('/home')
   }
 
