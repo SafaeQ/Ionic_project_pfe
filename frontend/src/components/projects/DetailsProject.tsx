@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom'
 
 const DetailsProject: React.FC = (props) => {
   
-  const [projects, setProjects] = useState<Array<Object>>([]);
+  const [project, setProject] = useState({}) as any[];
 
   type Params = {
     id: string;
@@ -20,13 +20,11 @@ const DetailsProject: React.FC = (props) => {
     
     api.get(`/api/projects/${id}`)
 		.then((res) => {
-			setProjects(res.data)
-      console.log("test",res.data.data.name);
+			setProject(res.data.data)
 		})
 		.catch(err => {
 			console.log(err);
 		})
-    // console.log("dataan",projects.data.name);
     
   }, []);
 
@@ -45,13 +43,10 @@ const DetailsProject: React.FC = (props) => {
         <IonContent fullscreen> 
             <IonHeader collapse="condense" >
                 <IonToolbar>
-                        <IonTitle style={{fontSize: 'larger'}}>details</IonTitle>  
+                        <IonTitle style={{fontSize: 'larger'}}>{project.name}</IonTitle>  
                 </IonToolbar>
             </IonHeader>
         </IonContent>
-        <div>
-            {/* <h1> {projects.data.name} </h1> */}
-        </div>
       </IonPage>
     </>
   );
