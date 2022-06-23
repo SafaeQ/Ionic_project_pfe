@@ -90,7 +90,7 @@ const AddProject: React.FC = (props) => {
                         </IonCol>
                     </IonRow>
                     <IonRow className="ion-no-margin ">
-                        <IonCol >
+                        <IonCol>
                             <IonItem>
                                 <IonLabel position='floating'> Your Budget</IonLabel>
                                 <IonInput name='budget' type='number' onIonChange={handleChangeBudget}></IonInput>

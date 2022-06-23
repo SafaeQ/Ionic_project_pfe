@@ -1,5 +1,5 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { shapesOutline } from 'ionicons/icons';
+import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonGrid, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { arrowBack, shapesOutline } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
 import { useParams } from 'react-router-dom'
@@ -37,15 +37,26 @@ const DetailsProject: React.FC = (props) => {
                 <IonButton className="custom-button">
                         <IonIcon icon={ shapesOutline } />
                 </IonButton>
+                <IonButtons slot="start">
+                        <IonBackButton icon={ arrowBack } text="" className="custom-back" />
+                </IonButtons>
             </IonButtons>
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen> 
             <IonHeader collapse="condense" >
                 <IonToolbar>
-                        <IonTitle style={{fontSize: 'larger'}}>{project.name}</IonTitle>  
+                        <IonTitle style={{fontSize: 'larger'}}> Project's Details </IonTitle>  
                 </IonToolbar>
             </IonHeader>
+            <IonCard>
+            <img src={`http://localhost:9900/images/image/${project.images[0]}`} className="mx-auto d-block card-img-top"   alt="heyy" />
+                <IonCardHeader>
+                    <IonCardTitle> {project.name}  </IonCardTitle>
+                    <IonCardSubtitle> {project.budget} DH </IonCardSubtitle>
+                </IonCardHeader>
+                <IonCardContent> {project.description} </IonCardContent>
+            </IonCard>
         </IonContent>
       </IonPage>
     </>
