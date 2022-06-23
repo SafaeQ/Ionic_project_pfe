@@ -1,13 +1,14 @@
-import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonGrid, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { arrowBack, shapesOutline } from 'ionicons/icons';
 import React, { useEffect, useState } from 'react';
 import api from '../../services/api';
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
 
 
 const DetailsProject: React.FC = (props) => {
-  
+  const history = useHistory()
+
   const [project, setProject] = useState({}) as any[];
 
   type Params = {
@@ -27,6 +28,18 @@ const DetailsProject: React.FC = (props) => {
 		})
     
   }, []);
+
+  const deleteProject = (id: any)=>{
+      console.log(id, 'id');
+      api.delete(`/api/${id}`)
+      // const newProject = project.filter((project: any) => {
+      //     return project._id !== id
+      // })
+      // setProject(newProject)
+
+      setProject((project: any)=> project.filter((p: any)=> p !== id))
+      history.push('/home')
+  }
 
   return (
     <>
@@ -53,13 +66,21 @@ const DetailsProject: React.FC = (props) => {
             <img src={`http://localhost:9900/images/image/${project.images}`} className="mx-auto d-block card-img-top"   alt="heyy" />
                 <IonCardHeader>
                     <IonCardTitle> {project.name}  </IonCardTitle>
+                    <br/>
                     <IonCardSubtitle> {project.budget} DH </IonCardSubtitle>
                 </IonCardHeader>
                 <IonCardContent> {project.description} </IonCardContent>
-                <IonButtons>
-                    <IonButton> Delete </IonButton>
-                    <IonButton> Edit </IonButton>
-                </IonButtons>
+                <IonGrid>
+                  <IonRow className="justify-content-md-center">
+                    <IonCol size="12" className="col-md-12 text-center">
+                      <IonButtons>
+                          <IonButton onClick={()=> deleteProject(id) }> Delete </IonButton>
+                          <IonButton> Edit </IonButton>
+                          <IonButton> Article </IonButton>
+                      </IonButtons>
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
             </IonCard>
         </IonContent>
       </IonPage>
