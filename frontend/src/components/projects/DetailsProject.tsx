@@ -50,12 +50,16 @@ const DetailsProject: React.FC = (props) => {
                 </IonToolbar>
             </IonHeader>
             <IonCard>
-            <img src={`http://localhost:9900/images/image/${project.images[0]}`} className="mx-auto d-block card-img-top"   alt="heyy" />
+            <img src={`http://localhost:9900/images/image/${project.images}`} className="mx-auto d-block card-img-top"   alt="heyy" />
                 <IonCardHeader>
                     <IonCardTitle> {project.name}  </IonCardTitle>
                     <IonCardSubtitle> {project.budget} DH </IonCardSubtitle>
                 </IonCardHeader>
                 <IonCardContent> {project.description} </IonCardContent>
+                <IonButtons>
+                    <IonButton> Delete </IonButton>
+                    <IonButton> Edit </IonButton>
+                </IonButtons>
             </IonCard>
         </IonContent>
       </IonPage>
