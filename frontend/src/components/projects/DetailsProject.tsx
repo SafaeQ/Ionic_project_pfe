@@ -70,7 +70,7 @@ const DetailsProject: React.FC = (props) => {
                     <IonCol size="12" className="col-md-12 text-center">
                       <IonButtons>
                           <IonButton onClick={()=> deleteProject(id) }> Delete </IonButton>
-                          <IonButton> Edit </IonButton>
+                          <IonButton routerLink='/edit'> Edit </IonButton>
                           <IonButton> Article </IonButton>
                       </IonButtons>
                     </IonCol>

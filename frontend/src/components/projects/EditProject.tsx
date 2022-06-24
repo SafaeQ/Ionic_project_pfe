@@ -25,10 +25,10 @@ const EditProject = () => {
                             <IonAlert
                                   // isOpen={iserror}
                                   // onDidDismiss={() => setIserror(false)}
-                                  cssClass="my-custom-class"
-                                  header={"Error!"}
-                                  // message={message}
-                                  buttons={["Dismiss"]} isOpen={false}                            />
+                                    cssClass="my-custom-class"
+                                    header={"Error!"}
+                                    // message={message}
+                                    buttons={["Dismiss"]} isOpen={false}                            />
                         </IonCol>
                     </IonRow>
                     <IonRow className="ion-no-margin ">

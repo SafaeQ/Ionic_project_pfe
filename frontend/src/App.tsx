@@ -39,6 +39,7 @@ import Services from './pages/Services';
 import ContactUs from './pages/ContactUs';
 import Board from './pages/Bord';
 import PrivateRoute from './services/privateRoute';
+import EditProject from './components/projects/EditProject';
 
 setupIonicReact();
 
@@ -58,6 +59,10 @@ const App: React.FC = () => (
           
           <Route exact path="/create-project">
             <AddProject />
+          </Route>
+          
+          <Route exact path="/edit">
+            <EditProject />
           </Route>
 
           <Route exact path="/login">
