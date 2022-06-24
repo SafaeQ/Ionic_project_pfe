@@ -65,11 +65,11 @@ const DetailsProject: React.FC = (props) => {
             <IonCard>
             <img src={`http://localhost:9900/images/image/${project.images}`} className="mx-auto d-block card-img-top"   alt="heyy" />
                 <IonCardHeader>
-                    <IonCardTitle> {project.name}  </IonCardTitle>
+                    <IonCardTitle className='d-flex justify-content-center'> {project.name}  </IonCardTitle>
                     <br/>
-                    <IonCardSubtitle> {project.budget} DH </IonCardSubtitle>
+                    <IonCardSubtitle className='d-flex justify-content-center'> {project.budget} DH </IonCardSubtitle>
                 </IonCardHeader>
-                <IonCardContent> {project.description} </IonCardContent>
+                <IonCardContent className='d-flex justify-content-center'> {project.description} </IonCardContent>
                 <IonGrid>
                   <IonRow className="justify-content-md-center">
                     <IonCol size="12" className="col-md-12 text-center">
