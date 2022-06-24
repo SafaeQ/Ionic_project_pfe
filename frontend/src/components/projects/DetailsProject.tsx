@@ -32,11 +32,6 @@ const DetailsProject: React.FC = (props) => {
   const deleteProject = (id: any)=>{
       console.log(id, 'id');
       api.delete(`/api/${id}`)
-      // const newProject = project.filter((project: any) => {
-      //     return project._id !== id
-      // })
-      // setProject(newProject)
-
       setProject((project: any)=> project.filter((p: any)=> p.id !== id))     
       history.push('/home')
   }
