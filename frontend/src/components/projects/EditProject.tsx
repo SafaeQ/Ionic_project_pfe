@@ -1,14 +1,17 @@
 import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonContent, IonTitle, IonGrid, IonRow, IonCol, IonAlert, IonItem, IonLabel, IonInput, IonButton, IonFooter } from '@ionic/react';
 import { arrowBack } from 'ionicons/icons';
 import React, { useState } from 'react';
+import api from '../../services/api';
 
 const EditProject = () => {
-    const [project, setProject] = useState();
+    const [newProject, setNewProject] = useState(0);
 
-    const editProject = () => {
-        // const  
+    const updateProject = (id: any) => {
+        api.put(`/api/${id}`, {id, newProject})
     }
-
+    console.log(newProject);
+  
+    
   return (
     <>
         <IonPage>
@@ -41,7 +44,7 @@ const EditProject = () => {
                         <IonCol >
                             <IonItem>
                                 <IonLabel position='floating'> Title</IonLabel>
-                                <IonInput name='name' type='text'></IonInput>
+                                <IonInput name='name' type='text' ></IonInput>
                             </IonItem>
                         </IonCol>
                     </IonRow>
@@ -76,7 +79,7 @@ const EditProject = () => {
                     </IonRow>
                     <IonRow className="ion-padding">
                         <IonCol size="12" className="col-md-12 text-center">
-                            <IonButton color='danger' type='submit' > Done </IonButton>
+                            <IonButton color='danger' type='submit'  > Done </IonButton>
                         </IonCol>
                     </IonRow>
                 </IonGrid>

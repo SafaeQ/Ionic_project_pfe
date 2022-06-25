@@ -15,7 +15,7 @@ const isAuthorized = require('../middlewares/permission')
 
     projectRouter.get('/projects/:id',checkAuthentication, getProjectById)
 
-    projectRouter.put('/update-project/:id',checkAuthentication,isAuthorized('association'),  upload.array('images', 8), updateProject)
+    projectRouter.put('/:id',checkAuthentication, upload.array('images', 8), updateProject)
 
     projectRouter.delete('/:id',checkAuthentication,  deleteProject)
 
