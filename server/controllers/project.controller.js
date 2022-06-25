@@ -130,16 +130,16 @@ const updateProject = async (req, res) => {
 
 const deleteProject = (req, res) => {
     
-    const id = req.params.id
-
-    const projectDeleted = Project.findOneAndRemove(id)
-
+    const _id = req.params.id
+    const projectDeleted = Project.deleteOne({_id})
     projectDeleted.then((data)=> { 
+        console.log({id,data})
                     res.status(200).send({
                         message:'project has been deleted',
                         success:true, data: data
                     })})
                 .catch((error)=> { 
+                    console.log({error})
                     res.status(404).send({
                         success: false, 
                         message:error 

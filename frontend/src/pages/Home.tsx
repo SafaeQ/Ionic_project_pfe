@@ -19,17 +19,9 @@ const Home: React.FC = (props) => {
 		})
 	}
 
-	// const goToProject = (e:any, id: string) => {
-	// 	e.preventDefault()
-	// 	console.log('clicked');
-	// 	window.location.href = `/projects/${id}`;
-	// 	console.log(id);
-		
-	// }
-
 	useEffect(()=>{
         fetchData()
-    },[projects])
+    },[])
 
 return (
     <IonPage>
