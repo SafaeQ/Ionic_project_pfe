@@ -1,8 +1,14 @@
 import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonContent, IonTitle, IonGrid, IonRow, IonCol, IonAlert, IonItem, IonLabel, IonInput, IonButton, IonFooter } from '@ionic/react';
 import { arrowBack } from 'ionicons/icons';
-import React from 'react';
+import React, { useState } from 'react';
 
 const EditProject = () => {
+    const [project, setProject] = useState();
+
+    const editProject = () => {
+        // const  
+    }
+
   return (
     <>
         <IonPage>
