@@ -61,7 +61,7 @@ const App: React.FC = () => (
             <AddProject />
           </Route>
           
-          <Route exact path="/edit">
+          <Route exact path="/edit/:id">
             <EditProject />
           </Route>
 

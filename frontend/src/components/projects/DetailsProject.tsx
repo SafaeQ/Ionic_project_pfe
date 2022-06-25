@@ -36,6 +36,13 @@ const DetailsProject: React.FC = (props) => {
       history.push('/home')
   }
 
+  const EditProject = (id: any) => {  
+      history.push({  
+      pathname: `/edit/${id}` 
+    });  
+    console.log(id);
+  }; 
+
   return (
     <>
       <IonPage>
@@ -70,7 +77,7 @@ const DetailsProject: React.FC = (props) => {
                     <IonCol size="12" className="col-md-12 text-center">
                       <IonButtons>
                           <IonButton onClick={()=> deleteProject(id) }> Delete </IonButton>
-                          <IonButton routerLink='/edit'> Edit </IonButton>
+                          <IonButton onClick={()=> { EditProject(project._id) }}> Edit </IonButton>
                           <IonButton> Article </IonButton>
                       </IonButtons>
                     </IonCol>
