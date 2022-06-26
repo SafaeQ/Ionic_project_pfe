@@ -1,6 +1,6 @@
 import { IonPage, IonHeader, IonToolbar, IonButtons, IonBackButton, IonContent, IonTitle, IonGrid, IonRow, IonCol, IonAlert, IonItem, IonLabel, IonInput, IonButton, IonFooter } from '@ionic/react';
 import { arrowBack } from 'ionicons/icons';
-import React, { PropsWithRef, useState } from 'react';
+import React, { PropsWithRef, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import api from '../../services/api';
 
@@ -23,19 +23,31 @@ const EditProject = (props: PropsWithRef<any>) => {
         setNewProject({ ...newProject, [name]: value });
     };
 
-    const updateProject = (id: any) => {
+    const updateProject = (d: any) => {
         
-        return api.put(`/api/${id}`, newProject)
+        return api.put(`/api/`+ props.match.params.id, d)
         .then((res: any)=> {
-            setNewProject(res.data)
-            console.log('responce', res.data);
-            // history.push('/projects')
+            if (res.status === 200) {
+                alert("Student successfully updated");
+                props.history.push("/home");
+            } else Promise.reject();
         })
         .catch((err) => {
             console.log('err',err);
         })
     }
-    console.log(newProject);
+    // console.log(newProject);
+
+    useEffect(() => {
+        api.get('/api' + props.match.params.id) 
+        .then((res)=> {
+            const { id, name, description, budget, images } = res.data;
+            setNewProject({id , name, description, budget, images });
+            console.log(res.data);
+        }).catch((err)=> {
+            console.log(err);
+        })
+    }, []);
 
     
   return (
