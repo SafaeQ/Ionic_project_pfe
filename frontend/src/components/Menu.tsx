@@ -29,8 +29,6 @@ const Menu = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent>
-            { isLoggedin ? (
-              <>
                 <IonList>
               <IonItem button routerLink={"/home"} routerDirection="none">
                 <IonLabel>Home</IonLabel>
@@ -47,11 +45,6 @@ const Menu = () => {
                   </IonLabel>
               </IonItem>
             </IonList>
-            </>
-            ) : (
-              <h1>none</h1>
-            )
-            }
         </IonContent>
       </IonMenu>
     );
